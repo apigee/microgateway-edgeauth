@@ -1,6 +1,6 @@
 {
   "name": "microgateway-edgeauth",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "App for Management Cli for Edge Micro",
   "author": "shawnfeldman",
   "main": "./app.js",
