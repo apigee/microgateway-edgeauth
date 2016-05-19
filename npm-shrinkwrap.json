@@ -1,5 +1,5 @@
 {
-  "name": "microgateway-app",
+  "name": "microgateway-edgeauth",
   "version": "1.0.0",
   "dependencies": {
     "a127-magic": {
@@ -501,9 +501,9 @@
       "resolved": "https://registry.npmjs.org/jodid25519/-/jodid25519-1.0.2.tgz"
     },
     "js-yaml": {
-      "version": "3.5.5",
-      "from": "js-yaml@>=3.5.3 <4.0.0",
-      "resolved": "https://registry.npmjs.org/js-yaml/-/js-yaml-3.5.5.tgz"
+      "version": "3.6.1",
+      "from": "js-yaml@latest",
+      "resolved": "https://registry.npmjs.org/js-yaml/-/js-yaml-3.6.1.tgz"
     },
     "jsbn": {
       "version": "0.1.0",
@@ -1196,15 +1196,18 @@
       "dependencies": {
         "debug": {
           "version": "1.0.4",
-          "from": "debug@>=1.0.0 <1.1.0"
+          "from": "debug@1.0.4",
+          "resolved": "https://registry.npmjs.org/debug/-/debug-1.0.4.tgz"
         },
         "ms": {
           "version": "0.6.2",
-          "from": "ms@0.6.2"
+          "from": "ms@0.6.2",
+          "resolved": "https://registry.npmjs.org/ms/-/ms-0.6.2.tgz"
         },
         "underscore": {
           "version": "1.6.0",
-          "from": "underscore@>=1.6.0 <1.7.0"
+          "from": "underscore@1.6.0",
+          "resolved": "https://registry.npmjs.org/underscore/-/underscore-1.6.0.tgz"
         }
       }
     },
