@@ -25,4 +25,4 @@
  //send response
  context.setVariable("response.header.Content-Type","text/plain");
  context.setVariable("response.header.Cache-Control","no-store");
- context.setVariable("response.content", unescape(context.getVariable("publicKey")));
+ context.setVariable("response.content", unescape(context.getVariable("private.publicKey")));

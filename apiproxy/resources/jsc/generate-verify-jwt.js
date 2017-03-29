@@ -25,7 +25,7 @@
  const typ = 'JWT';
  
  //private key used for signing JWT
- var key = context.getVariable("privateKey");
+ var key = context.getVariable("private.privateKey");
 
  //get api product list
  var apiProducts = JSON.parse(context.getVariable('apiProducts')).ApiProducts.ApiProduct || [];
