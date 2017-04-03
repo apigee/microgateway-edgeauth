@@ -3,7 +3,7 @@
     <DisplayName>JavaCalloutJWT</DisplayName>
     <FaultRules/>
     <Properties>
-        <Property name="private-key">{privateKey}</Property>
+        <Property name="private-key">{private.privateKey}</Property>
         <Property name="algorithm">RS256</Property>
         <Property name="audience">microgateway</Property>
         <Property name="expiresIn">{token_expiry}</Property>
