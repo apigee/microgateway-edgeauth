@@ -1,7 +1,7 @@
-/****************************************************************************
+ /****************************************************************************
  The MIT License (MIT)
 
- Copyright (c) 2015 Apigee Corporation
+ Copyright (c) 2016 Apigee Corporation
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -21,31 +21,28 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  ****************************************************************************/
-'use strict';
+ var apiProducts = JSON.parse(context.getVariable('apiProducts')).ApiProducts.ApiProduct || [];
 
-var apigee = require('apigee-access');
-var VAULT_TYPE = 'environment'; // ('organization' || 'environment')
+ var apiProductsList = [];
+ try {
+     //get only the product name; status is not used/sent
+     apiProducts.forEach(function(apiProduct){
+        apiProductsList.push(apiProduct.Name);
+     });
+ }catch(err){
+     apiProductsList.push(apiProducts.Name);
+ }
 
-module.exports = {
-  getPrivateKey: getPrivateKey,
-  getPublicKey: getPublicKey
-};
+ var scope = [];
+ try {
+    context.setVariable("scope",context.getVariable("oauthv2accesstoken.AccessTokenRequest.scope").split(" ") || []);
+ } catch (err) {
+     scope = [];
+ }
 
-function getPrivateKey(cb) {
-  vaultValue('private_key', cb);
-}
-
-function getPublicKey(cb) {
-  vaultValue('public_key', cb)
-}
-
-
-function vaultValue(key, cb) {
-  vault().get(key, cb);
-}
-
-function vault() {
-  var vaultName = global.config.edge_config['vaultName'];
-  console.log('vault is '+vaultName);
-  return apigee.getVault(vaultName, VAULT_TYPE);
-}
+ context.setVariable("apiProductList", apiProductsList);
+ context.setVariable("iss", context.getVariable("proxyProto") + "://" + context.getVariable("proxyHost") + context.getVariable("proxy.basepath")+context.getVariable("proxy.pathsuffix"));
+ context.setVariable("jti", 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+                return v.toString(16);
+            }));

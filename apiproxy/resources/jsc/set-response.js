@@ -1,7 +1,7 @@
-/****************************************************************************
+ /****************************************************************************
  The MIT License (MIT)
 
- Copyright (c) 2015 Apigee Corporation
+ Copyright (c) 2016 Apigee Corporation
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -21,17 +21,15 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  ****************************************************************************/
-'use strict';
-
-module.exports = {
-  passwordCheck: passwordCheck
-};
-
-function passwordCheck(username, password, cb) {
-
-  var validPassword = false;
-
-  // todo: do what you need to do here!
-
-  cb(null, validPassword);
-}
+ //prepare response object
+ var jws = {
+     token: context.getVariable("jwt_jwt")
+ };
+ //if refresh token exists, add it to response
+ if (context.getVariable('grant_type') === "password") {
+     jws.refresh_token = context.getVariable("oauthv2accesstoken.AccessTokenRequest.refresh_token");
+ }
+ //send response
+ context.setVariable("request.header.Content-Type","application/json");
+ context.setVariable("request.header.Cache-Control","no-store");
+ context.setVariable("request.content", JSON.stringify(jws));

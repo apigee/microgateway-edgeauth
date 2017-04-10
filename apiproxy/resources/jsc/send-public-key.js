@@ -1,7 +1,7 @@
-/****************************************************************************
+  /****************************************************************************
  The MIT License (MIT)
 
- Copyright (c) 2015 Apigee Corporation
+ Copyright (c) 2016 Apigee Corporation
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -21,20 +21,8 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  THE SOFTWARE.
  ****************************************************************************/
-'use strict';
 
-var certificates = require('../helpers/certificates');
-
-module.exports = {
-  getPublicKey: getPublicKey
-};
-
-function getPublicKey(req, res, next) {
-  certificates.getPublicKey(function(err, key) {
-    if (err && err.toString().indexOf('securestore_does_not_exist') < 0) { return next(err); }
-    if (!key) {
-      return res.status(404).send('no certificate has been installed');
-    }
-    res.send(key);
-  })
-}
+ //send response
+ context.setVariable("response.header.Content-Type","text/plain");
+ context.setVariable("response.header.Cache-Control","no-store");
+ context.setVariable("response.content", unescape(context.getVariable("private.publicKey")));
