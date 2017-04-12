@@ -4,7 +4,7 @@
     <Properties/>
     <Get assignTo="private.publicKey" index="1">
         <Key>
-            <Parameter>public_key</Parameter>
+            <Parameter>public-key</Parameter>
         </Key>
     </Get>
     <Scope>environment</Scope>

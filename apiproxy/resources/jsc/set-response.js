@@ -22,8 +22,11 @@
  THE SOFTWARE.
  ****************************************************************************/
  //prepare response object
+ 
+ var payload = JSON.parse(context.getVariable('response.content'));
+ 
  var jws = {
-     token: context.getVariable("jwt_jwt")
+     token: payload.token
  };
  //if refresh token exists, add it to response
  if (context.getVariable('grant_type') === "password") {

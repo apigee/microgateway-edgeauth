@@ -34,6 +34,9 @@ However, this implementation uses KVM entries to store public-key and private-ke
 Contained within the 'microgateway' is one entry called 'publicKey' with the RSA public key and one entry called 'privateKey'
 with one entry called 'privateKey'
 
+### JWT implementation
+This project uses the JWT implementation from [here](https://github.com/apigee/iloveapis2015-jwt-jwe-jws). Many thanks to
+Dino Chiesa for providing the JWT implementation.
 
 ### Customizations
 
@@ -47,8 +50,17 @@ In the flow named 'Obtain Access Token' you'll find an Assign Message Policy cal
 ```
 
 #### How do I add or modify claims?
-TODO
+Set them as properties in the Java callout like this:
+```
+<Property name="claim_access_token">{apigee.access_token}</Property>
+<Property name="claim_application_name">{AccessEntity.ChildNodes.Access-App-Info.App.AppId}</Property>
+<Property name="claim_client_id">{apigee.client_id}</Property>
+<Property name="claim_scopes">{oauthv2accesstoken.AccessTokenRequest.scope}</Property>
+<Property name="claim_jti">{jti}</Property>
+<Property name="claim_iss">{iss}</Property>
+```
 
+For more information on how to set/manipulate claims please see [here](https://github.com/apigee/iloveapis2015-jwt-jwe-jws/tree/master/jwt_signed/callout)
 
 #### How can I get refresh tokens?
 The OAuth v2 policy supports password grant. If a request is sent as below:
