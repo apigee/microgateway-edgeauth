@@ -45,14 +45,12 @@
                 <Step>
                     <Name>Set-JWT-Variables</Name>
                 </Step>
-                <Step>
-                    <Name>JavaCalloutJWT2</Name>
-                </Step>
+            </Request>
+            <Response>
                 <Step>
                     <Name>Set-Response</Name>
                 </Step>
-            </Request>
-            <Response/>
+            </Response>
             <Condition>(proxy.pathsuffix MatchesPath "/verifyApiKey") and (request.verb = "POST")</Condition>
         </Flow>
         <Flow name="Get API Products">
@@ -91,13 +89,14 @@
                     <Name>Set-JWT-Variables</Name>
                 </Step>
                 <Step>
-                    <Name>JavaCalloutJWT</Name>
-                </Step>
+                    <Name>Add-Custom-Claims</Name>
+                </Step>                
+            </Request>
+            <Response>
                 <Step>
                     <Name>Set-Response</Name>
                 </Step>
-            </Request>
-            <Response/>
+            </Response>
             <Condition>(proxy.pathsuffix MatchesPath "/token") and (request.verb = "POST")</Condition>
         </Flow>
         <Flow name="Refresh Access Token">
@@ -124,14 +123,12 @@
                 <Step>
                     <Name>Set-JWT-Variables</Name>
                 </Step>
-                <Step>
-                    <Name>JavaCalloutJWT</Name>
-                </Step>
+            </Request>
+            <Response>
                 <Step>
                     <Name>Set-Response</Name>
                 </Step>
-            </Request>
-            <Response/>
+            </Response>
             <Condition>(proxy.pathsuffix MatchesPath "/refresh") and (request.verb = "POST")</Condition>
         </Flow>
         <Flow name="Unknow Request">
@@ -150,5 +147,8 @@
         <VirtualHost>default</VirtualHost>
         <VirtualHost>secure</VirtualHost>
     </HTTPProxyConnection>
-    <RouteRule name="noroute"/>
+    <!--<RouteRule name="noroute"/>-->
+    <RouteRule name="default">
+        <TargetEndpoint>TargetEndpoint-1</TargetEndpoint>
+    </RouteRule>
 </ProxyEndpoint>

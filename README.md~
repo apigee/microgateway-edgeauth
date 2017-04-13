@@ -47,15 +47,8 @@ In the flow named 'Obtain Access Token' you'll find an Assign Message Policy cal
 ```
 
 #### How do I add or modify claims?
-The "Obtain Access Token" flow has a assign message policy called "Add Custom Claims". This policy is disabled by default.
-After enabling the policy, you can add claims inside the policy. Here is a sample:
-```
-    <AssignVariable>
-        <Name>claims</Name>
-        <Value>{"claim1": "abc", "claim2": "efg"}</Value>
-    </AssignVariable>
-```
-The claims must be set as a JSON (stringifyed) in the claims variable. 
+TODO
+
 
 #### How can I get refresh tokens?
 The OAuth v2 policy supports password grant. If a request is sent as below:
