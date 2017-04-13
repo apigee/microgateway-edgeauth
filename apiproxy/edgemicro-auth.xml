@@ -12,6 +12,7 @@
         <Policy>Access-App-Info-2</Policy>
         <Policy>Access-App-Info</Policy>
         <Policy>AccessTokenRequest</Policy>
+        <Policy>Add-Custom-Claims</Policy>
         <Policy>Create-OAuth-Request</Policy>
         <Policy>Create-Refresh-Request</Policy>
         <Policy>Extract-API-Key</Policy>

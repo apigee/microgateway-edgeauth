@@ -88,6 +88,9 @@
                 <Step>
                     <Name>Set-JWT-Variables</Name>
                 </Step>
+                <Step>
+                    <Name>Add-Custom-Claims</Name>
+                </Step>                
             </Request>
             <Response>
                 <Step>
