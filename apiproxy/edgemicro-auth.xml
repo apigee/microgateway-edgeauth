@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<APIProxy revision="16" name="edgemicro-auth">
+<APIProxy revision="1" name="edgemicro-auth">
     <Basepaths>/edgemicro-auth</Basepaths>
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
     <CreatedAt>1493061491451</CreatedAt>
