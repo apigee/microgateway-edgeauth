@@ -14,7 +14,7 @@
     "microgateway"
   ],
   "author": "srinandans@google.com",
-  "license": "ISC",
+  "license": "Apache2",
   "bugs": {
     "url": "https://github.com/apigee-internal/microgateway-edgeauth/issues"
   },

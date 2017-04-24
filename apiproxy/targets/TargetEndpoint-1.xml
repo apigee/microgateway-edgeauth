@@ -2,34 +2,44 @@
 <TargetEndpoint name="TargetEndpoint-1">
     <Description/>
     <FaultRules/>
-    <PreFlow name="PreFlow">
-        <Request/>
-        <Response/>
-    </PreFlow>
-    <PostFlow name="PostFlow">
-        <Request/>
-        <Response/>
-    </PostFlow>
     <Flows>
         <Flow name="Obtain Access Token">
             <Description/>
-            <Request>
-            </Request>
+            <Request/>
             <Response/>
             <Condition>(proxy.pathsuffix MatchesPath "/token") and (request.verb = "POST")</Condition>
         </Flow>
         <Flow name="Verify API Key">
             <Description/>
             <Request/>
+            <Response/>
             <Condition>(proxy.pathsuffix MatchesPath "/verifyApiKey") and (request.verb = "POST")</Condition>
         </Flow>
         <Flow name="Refresh Access Token">
             <Description/>
             <Request/>
+            <Response/>
             <Condition>(proxy.pathsuffix MatchesPath "/refresh") and (request.verb = "POST")</Condition>
         </Flow>
+        <Flow name="Get JWK Public Keys">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/jwkPublicKeys") and (request.verb = "GET")</Condition>
+        </Flow>
     </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <PreFlow name="PreFlow">
+        <Request/>
+        <Response/>
+    </PreFlow>
     <ScriptTarget>
+        <Arguments/>
+        <EnvironmentVariables/>
         <ResourceURL>node://index.js</ResourceURL>
+        <Properties/>
     </ScriptTarget>
 </TargetEndpoint>

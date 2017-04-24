@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<KeyValueMapOperations async="false" continueOnError="false" enabled="true" name="Get-Public-Key" mapIdentifier="microgateway">
+<KeyValueMapOperations encrypted="false" mapIdentifier="microgateway" async="false" continueOnError="false" enabled="true" name="Get-Public-Key">
     <DisplayName>Get Public Key</DisplayName>
+    <FaultRules/>
     <Properties/>
+    <ExclusiveCache>false</ExclusiveCache>
+    <ExpiryTimeInSecs>-1</ExpiryTimeInSecs>
+    <InitialEntries/>
     <Get assignTo="private.publicKey" index="1">
         <Key>
             <Parameter>public_key</Parameter>

@@ -79,7 +79,7 @@ POST /refresh
 	"grant_type": "refresh_token",
 	"refresh_token": "foo",
 	"client_id":"blah",
-  "client_secret":"blah"
+        "client_secret":"blah"
 }
 ```
 If valid, the response will contain a new access_token.
@@ -87,3 +87,6 @@ If valid, the response will contain a new access_token.
 #### What grant types are supported?
 client_credentials, password and refresh_token
 Users can extend the Apigee OAuth v2 policy to add support for the remaining grant types.
+
+#### Support for JSON Web Keys
+Microgateway stores private keys and public keys in an encrypted kvm.
