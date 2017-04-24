@@ -142,7 +142,7 @@
         </Flow>
     </Flows>
     <HTTPProxyConnection>
-        <BasePath>/edgemicro-auth</BasePath>
+        <BasePath>/edgemicro-auth-mdobs-testing</BasePath>
         <Properties/>
         <VirtualHost>default</VirtualHost>
         <VirtualHost>secure</VirtualHost>
