@@ -51,7 +51,7 @@
         <Resource>node://node_modules_safe-buffer.zip</Resource>
         <Resource>node://node_modules_topo.zip</Resource>
         <Resource>node://node_modules_xtend.zip</Resource>
-        <Resource>java://micro-gateway-products-javacallout-1.0.0.jar</Resource>
+        <Resource>java://micro-gateway-products-javacallout-2.0.0.jar</Resource>
         <Resource>jsc://generate-verify-jwt.js</Resource>
         <Resource>jsc://send-public-key.js</Resource>
         <Resource>jsc://set-jwt-variables.js</Resource>
