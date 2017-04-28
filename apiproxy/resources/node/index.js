@@ -62,7 +62,13 @@
      token.iat = tstamp;
      
      try {
-         if ((request.url == "/refresh" || request.url == "/token") && request.method == "POST") {
+         if (request.url == "/publicKey" && request.method == "GET") {
+             response.writeHead(200, {
+                 "Content-Type": "text/plain"
+             });
+             response.end("");
+         }
+         else if ((request.url == "/refresh" || request.url == "/token") && request.method == "POST") {
              token.application_name = apigee.getVariable(request, "AccessEntity.ChildNodes.Access-App-Info.App.AppId");
              token.scopes = apigee.getVariable(request, "scope");
              token.exp = tstamp + parseInt(apigee.getVariable(request, "token_expiry"));
