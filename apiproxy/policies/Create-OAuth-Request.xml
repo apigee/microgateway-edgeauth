@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <AssignMessage async="false" continueOnError="false" enabled="true" name="Create-OAuth-Request">
     <DisplayName>Create OAuth Request</DisplayName>
+    <FaultRules/>
+    <Properties/>
     <Set>
         <FormParams>
             <FormParam name="client_id">{client_id}</FormParam>
@@ -14,12 +16,12 @@
     </Set>
     <AssignVariable>
         <Name>token_expiry</Name>
-        <Value>300000</Value>
+        <Value>300</Value>
     </AssignVariable>
     <AssignVariable>
         <Name>refresh_token_expiry</Name>
-        <Value>3600000</Value>
+        <Value>3600</Value>
     </AssignVariable>
     <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
-    <AssignTo createNew="true" transport="http" type="request"/>
+    <AssignTo type="request" transport="http" createNew="true"/>
 </AssignMessage>

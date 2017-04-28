@@ -2,11 +2,10 @@
 <APIProxy revision="1" name="edgemicro-auth">
     <Basepaths>/edgemicro-auth</Basepaths>
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
-    <CreatedAt>1492005860487</CreatedAt>
+    <CreatedAt>1493061491451</CreatedAt>
     <CreatedBy>ssridhar@apigee.com</CreatedBy>
-    <Description></Description>
     <DisplayName>edgemicro-auth</DisplayName>
-    <LastModifiedAt>1492006114742</LastModifiedAt>
+    <LastModifiedAt>1493063252527</LastModifiedAt>
     <LastModifiedBy>ssridhar@apigee.com</LastModifiedBy>
     <Policies>
         <Policy>Access-App-Info-2</Policy>
@@ -20,6 +19,7 @@
         <Policy>Extract-Refresh-Params</Policy>
         <Policy>Get-Private-Key</Policy>
         <Policy>Get-Public-Key</Policy>
+        <Policy>Get-Public-Keys</Policy>
         <Policy>JavaCallout</Policy>
         <Policy>Products-to-JSON-2</Policy>
         <Policy>Products-to-JSON</Policy>
@@ -36,22 +36,14 @@
     <Resources>
         <Resource>node://index.js</Resource>
         <Resource>node://node_modules_apigee-access.zip</Resource>
+        <Resource>node://node_modules_jsrsasign.zip</Resource>
         <Resource>node://node_modules_base64url.zip</Resource>
-        <Resource>node://node_modules_buffer-equal-constant-time.zip</Resource>
-        <Resource>node://node_modules_ecdsa-sig-formatter.zip</Resource>
-        <Resource>node://node_modules_hoek.zip</Resource>
-        <Resource>node://node_modules_isemail.zip</Resource>
-        <Resource>node://node_modules_joi.zip</Resource>
-        <Resource>node://node_modules_jsonwebtoken.zip</Resource>
         <Resource>node://node_modules_jwa.zip</Resource>
         <Resource>node://node_modules_jws.zip</Resource>
-        <Resource>node://node_modules_lodash.once.zip</Resource>
-        <Resource>node://node_modules_moment.zip</Resource>
-        <Resource>node://node_modules_ms.zip</Resource>
-        <Resource>node://node_modules_safe-buffer.zip</Resource>
-        <Resource>node://node_modules_topo.zip</Resource>
-        <Resource>node://node_modules_xtend.zip</Resource>
         <Resource>java://micro-gateway-products-javacallout-2.0.0.jar</Resource>
+        <Resource>node://node_modules_buffer-equal-constant-time.zip</Resource>
+        <Resource>node://node_modules_ecdsa-sig-formatter.zip</Resource>
+        <Resource>node://package.json</Resource>
         <Resource>jsc://generate-verify-jwt.js</Resource>
         <Resource>jsc://send-public-key.js</Resource>
         <Resource>jsc://set-jwt-variables.js</Resource>
