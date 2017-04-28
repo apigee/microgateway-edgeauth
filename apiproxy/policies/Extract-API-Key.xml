@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ExtractVariables async="false" continueOnError="false" enabled="true" name="Extract-API-Key">
     <DisplayName>Extract API Key</DisplayName>
-    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <FaultRules/>
+    <Properties/>
     <Header name="X-Forwarded-Proto">
         <Pattern ignoreCase="true">{proxyProto}</Pattern>
     </Header>
     <Header name="Host">
         <Pattern ignoreCase="true">{proxyHost}</Pattern>
     </Header>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
     <JSONPayload>
         <Variable name="apikey">
             <JSONPath>$.apiKey</JSONPath>
