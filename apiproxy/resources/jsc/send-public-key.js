@@ -26,4 +26,4 @@
  context.setVariable("response.header.Content-Type","text/plain");
  context.setVariable("response.header.Cache-Control","no-store");
  context.setVariable("response.content", unescape(context.getVariable("private.publicKey")));
- context.setVariable("response.status", 200);
+ context.setVariable("response.status.code", 200);
