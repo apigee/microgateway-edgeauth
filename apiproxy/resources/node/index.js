@@ -74,6 +74,7 @@
              token.exp = tstamp + parseInt(apigee.getVariable(request, "token_expiry"));
          } else if (request.url == "/verifyApiKey" && request.method == "POST") {
              token.application_name = apigee.getVariable(request, "apigee.developer.app.name");
+             token.exp = tstamp + 300;//hard code expiry
          } else if (request.url == "/jwkPublicKeys" && request.method == "GET") {
              var publicKey1 = apigee.getVariable(request, "private.publicKey1");
              var publicKey2 = apigee.getVariable(request, "private.publicKey2");
