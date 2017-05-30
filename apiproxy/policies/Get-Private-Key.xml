@@ -11,5 +11,10 @@
             <Parameter>private_key</Parameter>
         </Key>
     </Get>
+    <Get assignTo="private.private_key_kid" index="1">
+        <Key>
+            <Parameter>private_key_kid</Parameter>
+        </Key>
+    </Get>
     <Scope>environment</Scope>
 </KeyValueMapOperations>

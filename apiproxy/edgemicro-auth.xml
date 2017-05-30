@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <APIProxy revision="1" name="edgemicro-auth">
     <Basepaths>/edgemicro-auth</Basepaths>
+    <Basepaths>/edgemicro-auth</Basepaths>
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
-    <CreatedAt>1493061491451</CreatedAt>
+    <CreatedAt>1493651338448</CreatedAt>
     <CreatedBy>ssridhar@apigee.com</CreatedBy>
     <DisplayName>edgemicro-auth</DisplayName>
-    <LastModifiedAt>1493063252527</LastModifiedAt>
+    <LastModifiedAt>1496160122153</LastModifiedAt>
     <LastModifiedBy>ssridhar@apigee.com</LastModifiedBy>
     <Policies>
         <Policy>Access-App-Info-2</Policy>
@@ -36,14 +37,15 @@
     <Resources>
         <Resource>node://index.js</Resource>
         <Resource>node://node_modules_apigee-access.zip</Resource>
-        <Resource>node://node_modules_jsrsasign.zip</Resource>
         <Resource>node://node_modules_base64url.zip</Resource>
-        <Resource>node://node_modules_jwa.zip</Resource>
-        <Resource>node://node_modules_jws.zip</Resource>
         <Resource>node://node_modules_buffer-equal-constant-time.zip</Resource>
         <Resource>node://node_modules_ecdsa-sig-formatter.zip</Resource>
+        <Resource>node://node_modules_jsrsasign.zip</Resource>
+        <Resource>node://node_modules_jwa.zip</Resource>
+        <Resource>node://node_modules_jws.zip</Resource>
+        <Resource>node://node_modules_safe-buffer.zip</Resource>
         <Resource>node://package.json</Resource>
-        <Resource>java://micro-gateway-products-javacallout-1.0.0.jar</Resource>
+        <Resource>java://micro-gateway-products-javacallout-2.0.0.jar</Resource>
         <Resource>jsc://generate-verify-jwt.js</Resource>
         <Resource>jsc://send-public-key.js</Resource>
         <Resource>jsc://set-jwt-variables.js</Resource>
