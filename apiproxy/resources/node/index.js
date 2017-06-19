@@ -93,7 +93,7 @@
                  var public_key1_kid = apigee.getVariable(request, "private.public_key1_kid") || null;
                  if (public_key1_kid !== null) {
                      jwk1.kid = public_key1_kid;
-                     jwk1.kty = "RSA";
+                     jwk1.alg = "RS256";
                      jwk1.use = "sig";
                  }
                  certificatelist.keys.push(jwk1);
@@ -103,7 +103,7 @@
                      var public_key2_kid = apigee.getVariable(request, "private.public_key2_kid") || null;
                      if (public_key2_kid !== null) {
                          jwk2.kid = public_key2_kid;
-                         jwk2.kty = "RSA";
+                         jwk2.alg = "RS256";
                          jwk2.use = "sig";
                      }
                      
