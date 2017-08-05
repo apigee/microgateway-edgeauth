@@ -89,4 +89,14 @@ client_credentials, password and refresh_token
 Users can extend the Apigee OAuth v2 policy to add support for the remaining grant types.
 
 #### Support for JSON Web Keys
-Microgateway stores private keys and public keys in an encrypted kvm.
+Microgateway stores private keys and public keys in an encrypted kvm. The proxy exposes an endpoint '/jwkPublicKeys' to return public keys as JWK.
+* Support for "kid" - Key Identifiers. If the KVM includes a field called 'private_key_kid' (value can be any string), the JWT header will include the "kid"
+```
+{
+  "alg": "RS256",
+  "typ": "JWT",
+  "kid": "1"
+}
+
+* The "kid" can be leveraged during validation of the JWT (not yet implemented in microgateway)
+```

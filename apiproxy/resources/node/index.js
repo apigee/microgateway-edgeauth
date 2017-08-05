@@ -90,10 +90,23 @@
              } else {
                  var key1 = rs.KEYUTIL.getKey(publicKey1);
                  var jwk1 = rs.KEYUTIL.getJWKFromKey(key1);
+                 var public_key1_kid = apigee.getVariable(request, "private.public_key1_kid") || null;
+                 if (public_key1_kid !== null) {
+                     jwk1.kid = public_key1_kid;
+                     jwk1.alg = "RS256";
+                     jwk1.use = "sig";
+                 }
                  certificatelist.keys.push(jwk1);
                  if (publicKey2) {
                      var key2 = rs.KEYUTIL.getKey(publicKey2);
                      var jwk2 = rs.KEYUTIL.getJWKFromKey(key2);
+                     var public_key2_kid = apigee.getVariable(request, "private.public_key2_kid") || null;
+                     if (public_key2_kid !== null) {
+                         jwk2.kid = public_key2_kid;
+                         jwk2.alg = "RS256";
+                         jwk2.use = "sig";
+                     }
+                     
                      certificatelist.keys.push(jwk2);
                  }
                  response.writeHead(200, {
@@ -109,8 +122,12 @@
              response.end(JSON.stringify(err));
          }
          var prvKeyObj = rs.KEYUTIL.getKey(privateKey);
+         var private_key_kid = apigee.getVariable(request, "private.private_key_kid") || null;
+         if (private_key_kid !== null) {
+             jwtHeader.kid = private_key_kid;
+         }
          var signed_token = {
-             "token": jws.sign({header: { alg: 'RS256' }, payload: token, secret: privateKey})
+             "token": jws.sign({header: jwtHeader, payload: token, secret: privateKey})
              //rs.jws.JWS.sign("RS256", JSON.stringify(jwtHeader), token, prvKeyObj)
          };
          response.writeHead(200, {

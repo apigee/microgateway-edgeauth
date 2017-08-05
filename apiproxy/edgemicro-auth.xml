@@ -36,7 +36,7 @@
     <Resources>
         <Resource>node://index.js</Resource>
         <Resource>node://node_modules_apigee-access.zip</Resource>
-        <Resource>node://node_modules_jsrsasign.zip</Resource>
+	<Resource>node://node_modules_jsrsasign.zip</Resource>
         <Resource>node://node_modules_base64url.zip</Resource>
         <Resource>node://node_modules_jwa.zip</Resource>
         <Resource>node://node_modules_jws.zip</Resource>
@@ -47,7 +47,8 @@
         <Resource>jsc://generate-verify-jwt.js</Resource>
         <Resource>jsc://send-public-key.js</Resource>
         <Resource>jsc://set-jwt-variables.js</Resource>
-        <Resource>jsc://set-response.js</Resource>
+        <Resource>jsc://set-response.js</Resource>		
+        <Resource>node://node_modules_safe-buffer.zip</Resource>
     </Resources>
     <Spec></Spec>
     <TargetServers/>

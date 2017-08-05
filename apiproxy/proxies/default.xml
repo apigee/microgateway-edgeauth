@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ProxyEndpoint name="default">
-    <Description/>
+    <Description></Description>
     <FaultRules/>
     <Flows>
         <Flow name="Get public key">
-            <Description/>
+            <Description></Description>
             <Request/>
             <Response>
                 <Step>
@@ -19,7 +19,7 @@
             <Condition>(proxy.pathsuffix MatchesPath "/publicKey") and (request.verb = "GET")</Condition>
         </Flow>
         <Flow name="Verify API Key">
-            <Description/>
+            <Description></Description>
             <Request>
                 <Step>
                     <FaultRules/>
@@ -55,7 +55,7 @@
             <Condition>(proxy.pathsuffix MatchesPath "/verifyApiKey") and (request.verb = "POST")</Condition>
         </Flow>
         <Flow name="Get API Products">
-            <Description/>
+            <Description></Description>
             <Request/>
             <Response>
                 <Step>
@@ -66,7 +66,7 @@
             <Condition>(proxy.pathsuffix MatchesPath "/products") and (request.verb = "GET")</Condition>
         </Flow>
         <Flow name="Obtain Access Token">
-            <Description/>
+            <Description></Description>
             <Request>
                 <Step>
                     <FaultRules/>
@@ -110,7 +110,7 @@
             <Condition>(proxy.pathsuffix MatchesPath "/token") and (request.verb = "POST")</Condition>
         </Flow>
         <Flow name="Refresh Access Token">
-            <Description/>
+            <Description></Description>
             <Request>
                 <Step>
                     <FaultRules/>
@@ -153,6 +153,7 @@
             <Description>This flow returns public keys as JWK</Description>
             <Request>
                 <Step>
+                    <FaultRules/>
                     <Name>Get-Public-Keys</Name>
                 </Step>
             </Request>

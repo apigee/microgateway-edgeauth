@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TargetEndpoint name="TargetEndpoint-1">
-    <Description/>
+    <Description></Description>
     <FaultRules/>
     <Flows>
         <Flow name="Obtain Access Token">
-            <Description/>
+            <Description></Description>
             <Request/>
             <Response/>
             <Condition>(proxy.pathsuffix MatchesPath "/token") and (request.verb = "POST")</Condition>
         </Flow>
         <Flow name="Verify API Key">
-            <Description/>
+            <Description></Description>
             <Request/>
             <Response/>
             <Condition>(proxy.pathsuffix MatchesPath "/verifyApiKey") and (request.verb = "POST")</Condition>
         </Flow>
         <Flow name="Refresh Access Token">
-            <Description/>
+            <Description></Description>
             <Request/>
             <Response/>
             <Condition>(proxy.pathsuffix MatchesPath "/refresh") and (request.verb = "POST")</Condition>
         </Flow>
         <Flow name="Get JWK Public Keys">
-            <Description/>
+            <Description></Description>
             <Request/>
             <Response/>
             <Condition>(proxy.pathsuffix MatchesPath "/jwkPublicKeys") and (request.verb = "GET")</Condition>
