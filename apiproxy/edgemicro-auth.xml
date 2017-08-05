@@ -40,12 +40,12 @@
         <Resource>node://node_modules_base64url.zip</Resource>
         <Resource>node://node_modules_jwa.zip</Resource>
         <Resource>node://node_modules_jws.zip</Resource>
-	<Resource>java://micro-gateway-products-javacallout-2.0.0.jar</Resource>
+        <Resource>java://micro-gateway-products-javacallout-2.0.0.jar</Resource>
         <Resource>node://node_modules_buffer-equal-constant-time.zip</Resource>
         <Resource>node://node_modules_ecdsa-sig-formatter.zip</Resource>
         <Resource>node://package.json</Resource>
-	<Resource>jsc://generate-verify-jwt.js</Resource>
-	<Resource>jsc://send-public-key.js</Resource>
+        <Resource>jsc://generate-verify-jwt.js</Resource>
+        <Resource>jsc://send-public-key.js</Resource>
         <Resource>jsc://set-jwt-variables.js</Resource>
         <Resource>jsc://set-response.js</Resource>		
         <Resource>node://node_modules_safe-buffer.zip</Resource>
