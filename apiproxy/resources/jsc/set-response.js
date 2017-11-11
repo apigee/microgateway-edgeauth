@@ -33,6 +33,6 @@
      jws.refresh_token = context.getVariable("oauthv2accesstoken.AccessTokenRequest.refresh_token");
  }
  //send response
- context.setVariable("request.header.Content-Type","application/json");
- context.setVariable("request.header.Cache-Control","no-store");
- context.setVariable("request.content", JSON.stringify(jws));
+ context.setVariable("response.header.Content-Type","application/json");
+ context.setVariable("response.header.Cache-Control","no-store");
+ context.setVariable("response.content", JSON.stringify(jws));
