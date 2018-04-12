@@ -70,10 +70,14 @@
          }
          else if ((request.url == "/refresh" || request.url == "/token") && request.method == "POST") {
              token.application_name = apigee.getVariable(request, "AccessEntity.ChildNodes.Access-App-Info.App.AppId");
+             token.application_displayname = apigee.getVariable(request,"developerApp");
+             token.application_developeremail = apigee.getVariable(request,"developerEMail");
              token.scopes = apigee.getVariable(request, "scope");
              token.exp = tstamp + parseInt(apigee.getVariable(request, "token_expiry"));
          } else if (request.url == "/verifyApiKey" && request.method == "POST") {
              token.application_name = apigee.getVariable(request, "apigee.developer.app.name");
+             token.application_displayname = apigee.getVariable(request,"developerApp");
+             token.application_developeremail = apigee.getVariable(request,"developerEMail");
              token.exp = tstamp + 300;//hard code expiry
          } else if (request.url == "/jwkPublicKeys" && request.method == "GET") {
              var publicKey1 = apigee.getVariable(request, "private.publicKey1");

@@ -46,4 +46,7 @@
                 var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
                 return v.toString(16);
             }));
+ context.setVariable("developerEMail", context.getVariable("apigee.developer.email"));
+ context.setVariable("developerApp", context.getVariable("apigee.developer.app.name"));
+
  
