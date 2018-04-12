@@ -1,4 +1,5 @@
 {
   "name": "microgateway-edgeauth",
-  "version": "2.3.0"
+  "version": "2.2.0-beta",
+  "lockfileVersion": 1
 }
