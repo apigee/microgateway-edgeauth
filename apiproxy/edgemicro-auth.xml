@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<APIProxy revision="1" name="edgemicro-auth">
+<APIProxy revision="3" name="edgemicro-auth">
     <Basepaths>/edgemicro-auth</Basepaths>
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
-    <CreatedAt>1493061491451</CreatedAt>
-    <CreatedBy>ssridhar@apigee.com</CreatedBy>
+    <CreatedAt>1527356327868</CreatedAt>
+    <CreatedBy>defaultUser</CreatedBy>
+    <Description>edgemicro-auth</Description>
     <DisplayName>edgemicro-auth</DisplayName>
-    <LastModifiedAt>1493063252527</LastModifiedAt>
-    <LastModifiedBy>ssridhar@apigee.com</LastModifiedBy>
+    <LastModifiedAt>1527356327868</LastModifiedAt>
+    <LastModifiedBy>defaultUser</LastModifiedBy>
+    <ManifestVersion>SHA-512:f3e98354e9aaf696bade5c3a8c4da5f7331b57f8764747d79557f335507a7b6edd9759b56bc3497e415353e95622bce7e66253ff7d5efeaf04734d78147a0cc5</ManifestVersion>
     <Policies>
         <Policy>Access-App-Info-2</Policy>
         <Policy>Access-App-Info</Policy>
         <Policy>AccessTokenRequest</Policy>
-        <Policy>Add-Custom-Claims</Policy>
         <Policy>Create-OAuth-Request</Policy>
         <Policy>Create-Refresh-Request</Policy>
         <Policy>Extract-API-Key</Policy>
         <Policy>Extract-OAuth-Params</Policy>
         <Policy>Extract-Refresh-Params</Policy>
+        <Policy>Generate-Access-Token</Policy>
+        <Policy>Generate-JWK</Policy>
+        <Policy>Generate-VerifyKey-Token</Policy>
         <Policy>Get-Private-Key</Policy>
         <Policy>Get-Public-Key</Policy>
         <Policy>Get-Public-Keys</Policy>
@@ -25,6 +29,7 @@
         <Policy>Products-to-JSON</Policy>
         <Policy>Raise-Fault-Unknown-Request</Policy>
         <Policy>RefreshAccessToken</Policy>
+        <Policy>Send-JWK-Message</Policy>
         <Policy>Send-Public-Key</Policy>
         <Policy>Set-JWT-Variables</Policy>
         <Policy>Set-Response</Policy>
@@ -34,26 +39,17 @@
         <ProxyEndpoint>default</ProxyEndpoint>
     </ProxyEndpoints>
     <Resources>
-        <Resource>node://index.js</Resource>
-        <Resource>node://node_modules_apigee-access.zip</Resource>
-	<Resource>node://node_modules_jsrsasign.zip</Resource>
-        <Resource>node://node_modules_base64url.zip</Resource>
-        <Resource>node://node_modules_jwa.zip</Resource>
-        <Resource>node://node_modules_jws.zip</Resource>
         <Resource>java://micro-gateway-products-javacallout-2.0.0.jar</Resource>
-        <Resource>node://node_modules_buffer-equal-constant-time.zip</Resource>
-        <Resource>node://node_modules_ecdsa-sig-formatter.zip</Resource>
-        <Resource>node://package.json</Resource>
+        <Resource>jsc://generate-jwk.js</Resource>
         <Resource>jsc://generate-verify-jwt.js</Resource>
+        <Resource>jsc://jsrsasign-all-min.js</Resource>
+        <Resource>jsc://jwt-initialization.js</Resource>
+        <Resource>jsc://send-jwk-response.js</Resource>
         <Resource>jsc://send-public-key.js</Resource>
         <Resource>jsc://set-jwt-variables.js</Resource>
-        <Resource>jsc://set-response.js</Resource>		
-        <Resource>node://node_modules_safe-buffer.zip</Resource>
+        <Resource>jsc://set-response.js</Resource>
     </Resources>
     <Spec></Spec>
     <TargetServers/>
-    <TargetEndpoints>
-        <TargetEndpoint>TargetEndpoint-1</TargetEndpoint>
-    </TargetEndpoints>
-    <validate>false</validate>
+    <TargetEndpoints/>
 </APIProxy>

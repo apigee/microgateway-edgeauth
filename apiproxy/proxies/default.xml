@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ProxyEndpoint name="default">
-    <Description></Description>
+    <Description/>
     <FaultRules/>
     <Flows>
         <Flow name="Get public key">
-            <Description></Description>
+            <Description/>
             <Request/>
             <Response>
                 <Step>
@@ -19,7 +19,7 @@
             <Condition>(proxy.pathsuffix MatchesPath "/publicKey") and (request.verb = "GET")</Condition>
         </Flow>
         <Flow name="Verify API Key">
-            <Description></Description>
+            <Description/>
             <Request>
                 <Step>
                     <FaultRules/>
@@ -45,6 +45,9 @@
                     <FaultRules/>
                     <Name>Set-JWT-Variables</Name>
                 </Step>
+                <Step>
+                    <Name>Generate-VerifyKey-Token</Name>
+                </Step>
             </Request>
             <Response>
                 <Step>
@@ -55,7 +58,7 @@
             <Condition>(proxy.pathsuffix MatchesPath "/verifyApiKey") and (request.verb = "POST")</Condition>
         </Flow>
         <Flow name="Get API Products">
-            <Description></Description>
+            <Description/>
             <Request/>
             <Response>
                 <Step>
@@ -66,7 +69,7 @@
             <Condition>(proxy.pathsuffix MatchesPath "/products") and (request.verb = "GET")</Condition>
         </Flow>
         <Flow name="Obtain Access Token">
-            <Description></Description>
+            <Description/>
             <Request>
                 <Step>
                     <FaultRules/>
@@ -97,8 +100,7 @@
                     <Name>Set-JWT-Variables</Name>
                 </Step>
                 <Step>
-                    <FaultRules/>
-                    <Name>Add-Custom-Claims</Name>
+                    <Name>Generate-Access-Token</Name>
                 </Step>
             </Request>
             <Response>
@@ -110,7 +112,7 @@
             <Condition>(proxy.pathsuffix MatchesPath "/token") and (request.verb = "POST")</Condition>
         </Flow>
         <Flow name="Refresh Access Token">
-            <Description></Description>
+            <Description/>
             <Request>
                 <Step>
                     <FaultRules/>
@@ -140,6 +142,9 @@
                     <FaultRules/>
                     <Name>Set-JWT-Variables</Name>
                 </Step>
+                <Step>
+                    <Name>Generate-Access-Token</Name>
+                </Step>
             </Request>
             <Response>
                 <Step>
@@ -156,8 +161,15 @@
                     <FaultRules/>
                     <Name>Get-Public-Keys</Name>
                 </Step>
+                <Step>
+                    <Name>Generate-JWK</Name>
+                </Step>
             </Request>
-            <Response/>
+            <Response>
+                <Step>
+                    <Name>Send-JWK-Message</Name>
+                </Step>
+            </Response>
             <Condition>(proxy.pathsuffix MatchesPath "/jwkPublicKeys") and (request.verb = "GET")</Condition>
         </Flow>
         <Flow name="Unknow Request">
@@ -182,10 +194,8 @@
     <HTTPProxyConnection>
         <BasePath>/edgemicro-auth</BasePath>
         <Properties/>
-        <VirtualHost>default</VirtualHost>        
+        <VirtualHost>default</VirtualHost>
         <VirtualHost>secure</VirtualHost>
     </HTTPProxyConnection>
-    <RouteRule name="default">
-        <TargetEndpoint>TargetEndpoint-1</TargetEndpoint>
-    </RouteRule>
+    <RouteRule name="noroute"/>
 </ProxyEndpoint>
