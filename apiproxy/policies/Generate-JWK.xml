@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Javascript async="false" continueOnError="false" enabled="true" timeLimit="10000" name="Generate-JWK">
+<Javascript timeLimit="10000" async="false" continueOnError="false" enabled="true" name="Generate-JWK">
     <DisplayName>Generate JWK</DisplayName>
+    <FaultRules/>
     <Properties/>
     <IncludeURL>jsc://jwt-initialization.js</IncludeURL>
     <IncludeURL>jsc://jsrsasign-all-min.js</IncludeURL>

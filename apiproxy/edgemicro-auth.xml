@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<APIProxy revision="3" name="edgemicro-auth">
+<APIProxy revision="1" name="edgemicro-auth">
+    <Basepaths>/edgemicro-auth</Basepaths>
     <Basepaths>/edgemicro-auth</Basepaths>
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
-    <CreatedAt>1527356327868</CreatedAt>
-    <CreatedBy>defaultUser</CreatedBy>
+    <CreatedAt>1527359822302</CreatedAt>
+    <CreatedBy>srinandans@google.com</CreatedBy>
     <Description>edgemicro-auth</Description>
     <DisplayName>edgemicro-auth</DisplayName>
-    <LastModifiedAt>1527356327868</LastModifiedAt>
-    <LastModifiedBy>defaultUser</LastModifiedBy>
-    <ManifestVersion>SHA-512:f3e98354e9aaf696bade5c3a8c4da5f7331b57f8764747d79557f335507a7b6edd9759b56bc3497e415353e95622bce7e66253ff7d5efeaf04734d78147a0cc5</ManifestVersion>
+    <LastModifiedAt>1527384627335</LastModifiedAt>
+    <LastModifiedBy>srinandans@google.com</LastModifiedBy>
+    <ManifestVersion>SHA-512:da1d00e71f95c8caa026389524ad42f222efae1c1f90a04a1363829be453ec23ef41b55e9ba052478ad14489d396d3ede6a267bd7d03374d08e5dc42475e7dbf</ManifestVersion>
     <Policies>
         <Policy>Access-App-Info-2</Policy>
         <Policy>Access-App-Info</Policy>
