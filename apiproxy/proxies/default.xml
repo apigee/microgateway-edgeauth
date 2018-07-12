@@ -45,6 +45,10 @@
                     <FaultRules/>
                     <Name>Set-JWT-Variables</Name>
                 </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Generate-VerifyKey-Token</Name>
+                </Step>
             </Request>
             <Response>
                 <Step>
@@ -98,7 +102,7 @@
                 </Step>
                 <Step>
                     <FaultRules/>
-                    <Name>Add-Custom-Claims</Name>
+                    <Name>Generate-Access-Token</Name>
                 </Step>
             </Request>
             <Response>
@@ -140,6 +144,10 @@
                     <FaultRules/>
                     <Name>Set-JWT-Variables</Name>
                 </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Generate-Access-Token</Name>
+                </Step>
             </Request>
             <Response>
                 <Step>
@@ -156,8 +164,17 @@
                     <FaultRules/>
                     <Name>Get-Public-Keys</Name>
                 </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Generate-JWK</Name>
+                </Step>
             </Request>
-            <Response/>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>Send-JWK-Message</Name>
+                </Step>
+            </Response>
             <Condition>(proxy.pathsuffix MatchesPath "/jwkPublicKeys") and (request.verb = "GET")</Condition>
         </Flow>
         <Flow name="Unknow Request">
@@ -185,7 +202,5 @@
         <VirtualHost>default</VirtualHost>        
         <VirtualHost>secure</VirtualHost>
     </HTTPProxyConnection>
-    <RouteRule name="default">
-        <TargetEndpoint>TargetEndpoint-1</TargetEndpoint>
-    </RouteRule>
+    <RouteRule name="noroute"/>
 </ProxyEndpoint>

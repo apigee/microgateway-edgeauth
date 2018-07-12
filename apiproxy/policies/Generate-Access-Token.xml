@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GenerateJWT async="false" continueOnError="false" enabled="true" name="Generate-Access-Token">
+    <DisplayName>Generate Access Token</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <AdditionalClaims>
+        <Claim name="client_id" ref="apigee.client_id" type="string"/>
+        <Claim name="access_token" ref="apigee.access_token" type="string"/>
+        <Claim array="true" name="api_product_list" ref="apiProductList" type="string"/>
+        <Claim name="application_name" ref="apigee.developer.app.name" type="string"/>
+        <Claim name="developer_email" ref="apigee.developer.email" type="string"/>
+        <Claim array="true" name="scopes" ref="scope" type="string"/>
+    </AdditionalClaims>
+    <AdditionalHeaders/>
+    <Algorithm>RS256</Algorithm>
+    <Audience>microgateway</Audience>
+    <ExpiresIn>30m</ExpiresIn>
+    <NotBefore ref="nbf"/>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <Issuer ref="iss"/>
+    <OutputVariable>jwtmessage</OutputVariable>
+    <PrivateKey>
+        <Value ref="private.privateKey"/>
+        <Id ref="private.private_key_kid"/>
+    </PrivateKey>
+</GenerateJWT>
