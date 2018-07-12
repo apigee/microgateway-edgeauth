@@ -199,7 +199,7 @@
     <HTTPProxyConnection>
         <BasePath>/edgemicro-auth</BasePath>
         <Properties/>
-        <VirtualHost>default</VirtualHost>
+        <VirtualHost>default</VirtualHost>        
         <VirtualHost>secure</VirtualHost>
     </HTTPProxyConnection>
     <RouteRule name="noroute"/>
