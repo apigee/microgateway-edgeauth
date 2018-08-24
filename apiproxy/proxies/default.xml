@@ -78,6 +78,10 @@
                 </Step>
                 <Step>
                     <FaultRules/>
+                    <Name>Verify-API-Key</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
                     <Name>Create-OAuth-Request</Name>
                 </Step>
                 <Step>
