@@ -12,31 +12,25 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-var apiProducts = JSON.parse(context.getVariable('apiProducts'));
+var apiCredential = JSON.parse(context.getVariable('apiCredential'));
 
 //{"ApiProducts":{"ApiProduct":{"Name":"helloworld","Status":"approved"}}}
 //{"ApiProducts":{"ApiProduct":[{"Name":"httpbin product","Status":"approved"},{"Name":"Edgemicro hello","Status":"approved"}]}}
+var apiProducts = apiCredential.Credential.ApiProducts;
+
 var apiProductsList = [];
 try {
 
-    if (!Array.isArray(apiProducts)) {
-        if (Array.isArray(apiProducts.ApiProducts.ApiProduct)) { // hack for broken XML2JSON
-            apiProducts.ApiProducts.ApiProduct.forEach(function(apiProduct) {
-                apiProductsList.push(apiProduct.Name);
-            });
-        } else {
-            apiProductsList.push(apiProducts.ApiProducts.ApiProduct.Name);
-        }
-    } else {
-        //get only the product name; status is not used/sent
-        apiProducts.forEach(function(apiProduct) {
+    if (Array.isArray(apiProducts.ApiProduct)) {
+        apiProducts.ApiProduct.forEach(function(apiProduct) {
             apiProductsList.push(apiProduct.Name);
         });
-
+    } else {
+        apiProductsList.push(apiProducts.ApiProduct.Name);
     }
 } catch (err) {
-    if (apiProducts && apiProducts.Name) {
-        apiProductsList.push(apiProducts.Name);
+    if (apiProducts && apiProducts.ApiProduct.Name) {
+        apiProductsList.push(apiProducts.ApiProduct.Name);
     }
 }
 
@@ -54,3 +48,4 @@ context.setVariable("jti", 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/
         v = c == 'x' ? r : (r & 0x3 | 0x8);
     return v.toString(16);
 }));
+
