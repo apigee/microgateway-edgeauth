@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-var apiCredential = JSON.parse(context.getVariable('apiCredential'));
+var apiCredential = JSON.parse(context.getVariable('apiProducts'));
 
 //{"ApiProducts":{"ApiProduct":{"Name":"helloworld","Status":"approved"}}}
 //{"ApiProducts":{"ApiProduct":[{"Name":"httpbin product","Status":"approved"},{"Name":"Edgemicro hello","Status":"approved"}]}}
