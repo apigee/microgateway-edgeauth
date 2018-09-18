@@ -13,25 +13,21 @@
 // limitations under the License.
 
 var apiCredential = JSON.parse(context.getVariable('apiCredential'));
-
-//{"ApiProducts":{"ApiProduct":{"Name":"helloworld","Status":"approved"}}}
-//{"ApiProducts":{"ApiProduct":[{"Name":"httpbin product","Status":"approved"},{"Name":"Edgemicro hello","Status":"approved"}]}}
-var apiProducts = apiCredential.Credential.ApiProducts;
+var apiKey = context.getVariable('apikey');
+//{"Credentials":{"Credential":[{"Attributes":{},"ConsumerKey":"xxx","ConsumerSecret":"xx","ExpiresAt":"-1","IssuedAt":"1530046158362","ApiProducts":{"ApiProduct":{"Name":"details product","Status":"approved"}},"Scopes":{},"Status":"approved"}]}}
+var credentials = apiCredential.Credentials.Credential;
 
 var apiProductsList = [];
 try {
-
-    if (Array.isArray(apiProducts.ApiProduct)) {
-        apiProducts.ApiProduct.forEach(function(apiProduct) {
-            apiProductsList.push(apiProduct.Name);
-        });
-    } else {
-        apiProductsList.push(apiProducts.ApiProduct.Name);
-    }
+    credentials.forEach(function(credential) {
+        if (credential.ConsumerKey == apiKey) {
+            credential.ApiProducts.ApiProduct.forEach(function(apiProduct){
+                apiProductsList.push(apiProduct.Name);
+            });
+        }
+    });
 } catch (err) {
-    if (apiProducts && apiProducts.ApiProduct.Name) {
-        apiProductsList.push(apiProducts.ApiProduct.Name);
-    }
+    print(err);
 }
 
 var scope = context.getVariable("oauthv2accesstoken.AccessTokenRequest.scope");
