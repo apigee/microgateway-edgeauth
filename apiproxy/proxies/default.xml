@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ProxyEndpoint name="default">
     <Description></Description>
-    <FaultRules/>
+    <FaultRules>
+        <FaultRule name="AuthenticationError">
+            <Condition>(fault.name Matches "ExecutionFailed") </Condition>
+            <Step>
+                <Name>AuthenticationError</Name>
+                <Condition>(calloutResponse.status.code = "401") </Condition>
+            </Step>
+        </FaultRule>
+    </FaultRules>
     <Flows>
         <Flow name="Get public key">
             <Description></Description>
@@ -60,7 +68,15 @@
         </Flow>
         <Flow name="Get API Products">
             <Description></Description>
-            <Request/>
+            <Request>
+                <Step>
+                    <Name>AuthenticationError</Name>
+                    <Condition>request.header.Authorization is null</Condition>
+                </Step>
+                <Step>
+                    <Name>Authenticate-Call</Name>
+                </Step>                
+            </Request>
             <Response>
                 <Step>
                     <FaultRules/>
