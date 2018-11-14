@@ -11,7 +11,7 @@
     <ExternalAuthorization>false</ExternalAuthorization>
     <Operation>GenerateAccessToken</Operation>
     <RefreshTokenExpiresIn ref="refresh_token_expiry">3600000</RefreshTokenExpiresIn>
-    <GenerateResponse enabled="false">
+    <GenerateResponse enabled="true">
         <Format>FORM_PARAM</Format>
     </GenerateResponse>
     <ReuseRefreshToken>true</ReuseRefreshToken>
