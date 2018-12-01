@@ -117,6 +117,10 @@
                     <Name>AccessTokenRequest</Name>
                 </Step>
                 <Step>
+                    <Name>Raise-Fault-Unknown-Request</Name>
+                    <Condition>oauthV2.AccessTokenRequest.failed is true</Condition>
+                </Step>
+                <Step>
                     <FaultRules/>
                     <Name>Get-Private-Key</Name>
                 </Step>
