@@ -15,7 +15,9 @@
  //prepare response object
  
  var jws = {
-     token: context.getVariable('jwtmessage')
+     token: context.getVariable('jwtmessage'),
+     access_token: context.getVariable('jwtmessage'),
+     token_type: "bearer"
  };
  //if refresh token exists, add it to response
  if (context.getVariable('grant_type') === "password") {
