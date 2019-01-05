@@ -93,6 +93,13 @@
                     <Name>Extract-OAuth-Params</Name>
                 </Step>
                 <Step>
+                    <Name>Validate-Params</Name>
+                </Step>
+                <Step>
+                    <Name>AuthenticationError</Name>
+                    <Condition>errText isnot null</Condition>
+                </Step>
+                <Step>
                     <FaultRules/>
                     <Name>Verify-API-Key</Name>
                 </Step>
