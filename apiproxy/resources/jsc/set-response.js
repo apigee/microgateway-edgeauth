@@ -25,12 +25,17 @@
     
     jws.access_token = context.getVariable('jwtmessage');
     jws.token_type   = "bearer";
-    jws.expires_in   = context.getVariable("token_expiry");
+    try {
+      jws.expires_in   = parseInt(context.getVariable("token_expiry"));
+    } catch (err) {}
+    
     
     //if refresh token exists, add it to response
     if (context.getVariable('grant_type') === "password") {
         jws.refresh_token            = context.getVariable("oauthv2accesstoken.AccessTokenRequest.refresh_token");
-        jws.refresh_token_expires_in = context.getVariable("oauthv2accesstoken.AccessTokenRequest.refresh_token_expires_in");         
+        try {
+         jws.refresh_token_expires_in = parseInt(context.getVariable("oauthv2accesstoken.AccessTokenRequest.refresh_token_expires_in"));
+        } catch (err) {}
         jws.refresh_token_issued_at  = context.getVariable("oauthv2accesstoken.AccessTokenRequest.refresh_token_issued_at") ; 
         jws.refresh_token_status     = context.getVariable("oauthv2accesstoken.AccessTokenRequest.refresh_token_status"); 
     }
