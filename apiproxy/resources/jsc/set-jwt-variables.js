@@ -45,3 +45,17 @@ context.setVariable("jti", 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/
     return v.toString(16);
 }));
 
+try {
+    var token_expiry = context.getVariable("token_expiry") || "";
+    if (token_expiry !== "") {
+        //set token expiry as seconds
+        context.setVariable("token_expiry", (parseInt(token_expiry, 10)/1000).toString());
+    } else {
+        //set default token expiry to 30 mins
+        context.setVariable("token_expiry", "108000");
+    }   
+} catch (err) {
+    //set default token expiry to 30 mins
+    context.setVariable("token_expiry", "108000");
+}
+

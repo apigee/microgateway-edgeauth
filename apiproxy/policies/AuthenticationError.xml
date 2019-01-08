@@ -8,7 +8,7 @@
             <Payload contentType="application/json" variablePrefix="@" variableSuffix="#">
                 {
                   "error":"unauthorized",
-                  "error_description": "authentication failed"
+                  "error_description": "authentication failed @errText#"
                 }
             </Payload>
             <StatusCode>401</StatusCode>

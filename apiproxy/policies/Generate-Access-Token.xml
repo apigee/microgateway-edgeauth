@@ -14,7 +14,7 @@
     <AdditionalHeaders/>
     <Algorithm>RS256</Algorithm>
     <Audience>microgateway</Audience>
-    <ExpiresIn>30m</ExpiresIn>
+    <ExpiresIn ref="token_expiry"/>
     <NotBefore ref="nbf"/>
     <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
     <Issuer ref="iss"/>

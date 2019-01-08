@@ -9,6 +9,21 @@
     <Header name="Host">
         <Pattern ignoreCase="true">{proxyHost}</Pattern>
     </Header>
+    <Header name="Authorization">
+        <Pattern ignoreCase="true">Basic {clientCreds}</Pattern>
+    </Header>
+    <FormParam name="grant_type">
+        <Pattern>{grant_type}</Pattern>
+    </FormParam>
+    <FormParam name="username">
+        <Pattern>{username}</Pattern>
+    </FormParam>
+    <FormParam name="password">
+        <Pattern>{password}</Pattern>
+    </FormParam>
+    <FormParam name="scope">
+        <Pattern>{scp}</Pattern>
+    </FormParam>
     <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
     <JSONPayload>
         <Variable name="client_id" type="string">

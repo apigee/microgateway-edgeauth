@@ -34,6 +34,7 @@
         <Policy>Send-Public-Key</Policy>
         <Policy>Set-JWT-Variables</Policy>
         <Policy>Set-Response</Policy>
+        <Policy>Validate-Params</Policy>
         <Policy>Verify-API-Key</Policy>
     </Policies>
     <ProxyEndpoints>
