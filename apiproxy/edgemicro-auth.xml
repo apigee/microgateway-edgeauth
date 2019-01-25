@@ -9,7 +9,7 @@
     <DisplayName>edgemicro-auth</DisplayName>
     <LastModifiedAt>1527384627335</LastModifiedAt>
     <LastModifiedBy>srinandans@google.com</LastModifiedBy>
-    <ManifestVersion>SHA-512:da1d00e71f95c8caa026389524ad42f222efae1c1f90a04a1363829be453ec23ef41b55e9ba052478ad14489d396d3ede6a267bd7d03374d08e5dc42475e7dbf</ManifestVersion>
+    <ManifestVersion>SHA-512:524a35761013327682170e1e5ab7f1bb6c46d32f573f7407d28374436c91bae0861c92062af1bd4d9218e9bf4cf126757ea057edfde51257da07d77946b03c01</ManifestVersion>
     <Policies>
         <Policy>Access-App-Info-2</Policy>
         <Policy>Access-App-Info</Policy>
@@ -51,7 +51,7 @@
         <Resource>jsc://set-jwt-variables.js</Resource>
         <Resource>jsc://set-response.js</Resource>
     </Resources>
-    <Spec></Spec>
+    <Spec/>
     <TargetServers/>
     <TargetEndpoints/>
 </APIProxy>
