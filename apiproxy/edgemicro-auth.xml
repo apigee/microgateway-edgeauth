@@ -26,6 +26,8 @@
         <Policy>Get-Public-Key</Policy>
         <Policy>Get-Public-Keys</Policy>
         <Policy>JavaCallout</Policy>
+        <Policy>Lookup-Entity</Policy>
+        <Policy>Populate-Entity</Policy>
         <Policy>Products-to-JSON-2</Policy>
         <Policy>Products-to-JSON</Policy>
         <Policy>Raise-Fault-Unknown-Request</Policy>

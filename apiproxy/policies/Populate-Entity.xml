@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PopulateCache async="false" continueOnError="false" enabled="true" name="Populate-Entity">
+    <DisplayName>Populate Entity</DisplayName>
+    <Properties/>
+    <CacheKey>
+        <KeyFragment ref="apikey"/>
+    </CacheKey>
+    <Scope>Exclusive</Scope>
+    <ExpirySettings>
+        <TimeoutInSec>3600</TimeoutInSec>
+    </ExpirySettings>
+    <Source>apiCredential</Source>
+</PopulateCache>
