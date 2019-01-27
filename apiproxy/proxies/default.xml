@@ -32,19 +32,28 @@
                 <Step>
                     <FaultRules/>
                     <Name>Extract-API-Key</Name>
-                </Step>
+                </Step>                
                 <Step>
                     <FaultRules/>
                     <Name>Verify-API-Key</Name>
                 </Step>
                 <Step>
+                    <Name>Lookup-Entity</Name>
+                </Step>                
+                <Step>
                     <FaultRules/>
                     <Name>Access-App-Info-2</Name>
+                    <Condition>lookupcache.Lookup-Entity.cachehit = false</Condition>
                 </Step>
                 <Step>
                     <FaultRules/>
                     <Name>Products-to-JSON-2</Name>
+                    <Condition>lookupcache.Lookup-Entity.cachehit = false</Condition>
                 </Step>
+                <Step>
+                    <Name>Populate-Entity</Name>
+                    <Condition>lookupcache.Lookup-Entity.cachehit = false</Condition>
+                </Step>                
                 <Step>
                     <FaultRules/>
                     <Name>Get-Private-Key</Name>
