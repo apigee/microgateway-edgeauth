@@ -100,3 +100,6 @@ Microgateway stores private keys and public keys in an encrypted kvm. The proxy 
 
 * The "kid" can be leveraged during validation of the JWT (not yet implemented in microgateway)
 ```
+### Release Notes
+v2.4.13 - 3/1/19 
+	Bug Fix: Improve character escaping for JSON formatting
