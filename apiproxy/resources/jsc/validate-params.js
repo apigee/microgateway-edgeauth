@@ -16,7 +16,7 @@ function validateParams() {
         return;
     }
     
-    if (grant_type === 'password') {
+    if (grant_type === 'pasword') {
         if (username === '' || password === '') {
             context.setVariable('errText', 'missing username and/or password');
             return;
@@ -44,3 +44,5 @@ function validateParams() {
         }
     }
 }
+
+

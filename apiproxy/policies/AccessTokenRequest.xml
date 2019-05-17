@@ -21,5 +21,7 @@
         <GrantType>password</GrantType>
         <GrantType>client_credentials</GrantType>
     </SupportedGrantTypes>
+    <!-- set scope -->
+    <Scope>request.formparam.scope</Scope>
     <Tokens/>
 </OAuthV2>

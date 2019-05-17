@@ -22,9 +22,7 @@ try {
     credentials.forEach(function(credential) {
         if (credential.ConsumerKey == apiKey) {
             credential.ApiProducts.ApiProduct.forEach(function(apiProduct){
-                if (apiProduct.Status === "approved") {
-                    apiProductsList.push(apiProduct.Name);
-                }
+                apiProductsList.push(apiProduct.Name);
             });
         }
     });

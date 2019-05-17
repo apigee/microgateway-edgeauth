@@ -15,9 +15,9 @@
     <Algorithm>RS256</Algorithm>
     <Audience>microgateway</Audience>
     <ExpiresIn ref="token_expiry"/>
-    <NotBefore ref="nbf"/>
     <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
     <Issuer ref="iss"/>
+    <NotBefore ref="nbf"/>
     <OutputVariable>jwtmessage</OutputVariable>
     <PrivateKey>
         <Value ref="private.privateKey"/>

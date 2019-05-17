@@ -25,5 +25,5 @@
         <Value>432000000</Value>
     </AssignVariable>
     <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
-    <AssignTo type="request" transport="http" createNew="true"></AssignTo>
+    <AssignTo type="request" transport="http" createNew="true"/>
 </AssignMessage>
