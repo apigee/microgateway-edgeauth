@@ -4,13 +4,13 @@
     <Basepaths>/edgemicro-auth</Basepaths>
     <Basepaths>/edgemicro-auth</Basepaths>
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
-    <CreatedAt>1558034670221</CreatedAt>
+    <CreatedAt>1567144173796</CreatedAt>
     <CreatedBy>defaultUser</CreatedBy>
     <Description>edgemicro-auth</Description>
     <DisplayName>edgemicro-auth</DisplayName>
-    <LastModifiedAt>1558034670221</LastModifiedAt>
+    <LastModifiedAt>1567144173796</LastModifiedAt>
     <LastModifiedBy>defaultUser</LastModifiedBy>
-    <ManifestVersion>SHA-512:fdf75087958d466fea59ab6f5b744f6e8b6c60fae00ab06be364c77621c2678be80ccd19dd6926c462a19e0bc7c41f6c3428a72d965004ace1b1921c6112dcd9</ManifestVersion>
+    <ManifestVersion>SHA-512:bf76071973427038ee5c020a053a9ea192f2d0f35bf7e26f7214ead92d716a500fd0669d95f2046de3084ccd4d21918a6b14bd461df2be715125a6993bae0bd1</ManifestVersion>
     <Policies>
         <Policy>Access-App-Info-2</Policy>
         <Policy>Access-App-Info</Policy>
@@ -19,6 +19,7 @@
         <Policy>AuthenticationError</Policy>
         <Policy>Create-OAuth-Request</Policy>
         <Policy>Create-Refresh-Request</Policy>
+        <Policy>DistributedQuota</Policy>
         <Policy>Extract-API-Key</Policy>
         <Policy>Extract-OAuth-Params</Policy>
         <Policy>Extract-Refresh-Params</Policy>
@@ -37,10 +38,13 @@
         <Policy>Products-to-JSON</Policy>
         <Policy>Raise-Fault-Unknown-Request</Policy>
         <Policy>RefreshAccessToken</Policy>
+        <Policy>ReturnVersion</Policy>
         <Policy>Send-JWK-Message</Policy>
         <Policy>Send-Product-List</Policy>
         <Policy>Send-Public-Key</Policy>
         <Policy>Set-JWT-Variables</Policy>
+        <Policy>Set-Quota-Response</Policy>
+        <Policy>Set-Quota-Variables</Policy>
         <Policy>Set-Response</Policy>
         <Policy>Validate-Params</Policy>
         <Policy>Verify-API-Key</Policy>
@@ -58,6 +62,7 @@
         <Resource>jsc://send-product-list.js</Resource>
         <Resource>jsc://send-public-key.js</Resource>
         <Resource>jsc://set-jwt-variables.js</Resource>
+        <Resource>jsc://set-quota-variables.js</Resource>
         <Resource>jsc://set-response.js</Resource>
         <Resource>jsc://validate-params.js</Resource>
     </Resources>
@@ -65,3 +70,4 @@
     <TargetServers/>
     <TargetEndpoints/>
 </APIProxy>
+

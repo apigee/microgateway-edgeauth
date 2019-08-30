@@ -228,8 +228,40 @@
             </Response>
             <Condition>(proxy.pathsuffix MatchesPath "/jwkPublicKeys") and (request.verb = "GET")</Condition>
         </Flow>
+        <Flow name="Version">
+            <Response>
+                <Step>
+                    <Name>ReturnVersion</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/v2/version") and (request.verb = "GET")</Condition>
+            <Request/>
+        </Flow>
+        <Flow name="DistributedQuota">
+            <Request>
+                <Step>
+                    <Name>AuthenticationError</Name>
+                    <Condition>request.header.Authorization is null</Condition>
+                </Step>
+                <Step>
+                    <Name>Authenticate-Call</Name>
+                </Step>
+                <Step>
+                    <Name>Set-Quota-Variables</Name>
+                </Step>
+                <Step>
+                    <Name>DistributedQuota</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <Name>Set-Quota-Response</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/v2/quotas**") and (request.verb = "POST")</Condition>
+        </Flow>
         <Flow name="Unknown Request">
-            <Description>Unknow Request</Description>
+            <Description>Unknown Request</Description>
             <Request>
                 <Step>
                     <FaultRules/>
