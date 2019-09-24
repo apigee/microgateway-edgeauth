@@ -30,6 +30,15 @@
             <Description/>
             <Request>
                 <Step>
+                    <Condition>request.header.Authorization is null</Condition>
+                    <FaultRules/>
+                    <Name>AuthenticationError</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Authenticate-Call</Name>
+                </Step>
+                <Step>
                     <FaultRules/>
                     <Name>Extract-API-Key</Name>
                 </Step>
