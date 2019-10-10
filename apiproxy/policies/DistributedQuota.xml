@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Quota async="false" continueOnError="true" enabled="true" name="DistributedQuota" type="flexi">
+<Quota async="false" continueOnError="true" enabled="true" name="DistributedQuota" type="calendar">
     <DisplayName>DistributedQuota</DisplayName>
     <Identifier ref="quota.identifier"/>
     <Allow countRef="quota.allow"/>
     <Interval ref="quota.interval"/>
     <TimeUnit ref="quota.unit"/>
     <MessageWeight ref="quota.weight"/>
+    <StartTime>2019-10-10 12:00:00</StartTime>
     <Distributed>true</Distributed>
     <Synchronous>false</Synchronous>
     <AsynchronousConfiguration>

@@ -15,6 +15,7 @@
         <Policy>Access-App-Info-2</Policy>
         <Policy>Access-App-Info</Policy>
         <Policy>AccessTokenRequest</Policy>
+	<Policy>Adjust-Quota</Policy>
         <Policy>Authenticate-Call</Policy>
         <Policy>AuthenticationError</Policy>
         <Policy>Create-OAuth-Request</Policy>
@@ -54,6 +55,7 @@
     </ProxyEndpoints>
     <Resources>
         <Resource>java://micro-gateway-products-javacallout-2.0.0.jar</Resource>
+        <Resource>jsc://adjust-quota.js</Resource>
         <Resource>jsc://generate-jwk.js</Resource>
         <Resource>jsc://generate-verify-jwt.js</Resource>
         <Resource>jsc://jsrsasign-all-min.js</Resource>

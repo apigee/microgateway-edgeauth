@@ -261,6 +261,9 @@
                 <Step>
                     <Name>DistributedQuota</Name>
                 </Step>
+                <Step>
+                    <Name>Adjust-Quota</Name>
+                </Step>
             </Request>
             <Response>
                 <Step>
