@@ -16,13 +16,13 @@
     </Set>
     <AssignVariable>
         <Name>token_expiry</Name>
-        <!-- set token expiry in milliseconds. this var is referred in other policies; modify if necessary; do not remove-->
-        <Value>108000000</Value>
+        <!-- set token expiry in milliseconds. default value is 30 mins. this var is referred in other policies; modify if necessary; do not remove-->
+        <Value>1800000</Value>
     </AssignVariable>
     <AssignVariable>
         <Name>refresh_token_expiry</Name>
-        <!-- set token expiry in milliseconds. this var is referred in other policies; modify if necessary; do not remove-->
-        <Value>432000000</Value>
+        <!-- set token expiry in milliseconds. default value is 12 hrs. this var is referred in other policies; modify if necessary; do not remove-->
+        <Value>43200000</Value>
     </AssignVariable>
     <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
     <AssignTo type="request" transport="http" createNew="true"/>

@@ -8,11 +8,11 @@
         <Format>FORM_PARAM</Format>
     </GenerateErrorResponse>
     <!-- expiry set to 30 mins -->
-    <ExpiresIn ref="token_expiry">108000000</ExpiresIn>
+    <ExpiresIn ref="token_expiry">1800000</ExpiresIn>
     <ExternalAuthorization>false</ExternalAuthorization>
     <Operation>GenerateAccessToken</Operation>
-    <!-- expiry set to 120 mins -->
-    <RefreshTokenExpiresIn ref="refresh_token_expiry">432000000</RefreshTokenExpiresIn>
+    <!-- expiry set to 12 hrs -->
+    <RefreshTokenExpiresIn ref="refresh_token_expiry">43200000</RefreshTokenExpiresIn>
     <GenerateResponse enabled="false">
         <Format>FORM_PARAM</Format>
     </GenerateResponse>

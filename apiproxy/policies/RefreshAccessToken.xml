@@ -7,7 +7,7 @@
     <GenerateErrorResponse enabled="true">
         <Format>FORM_PARAM</Format>
     </GenerateErrorResponse>
-    <ExpiresIn ref="token_expiry">300000</ExpiresIn>
+    <ExpiresIn ref="token_expiry">1800000</ExpiresIn>
     <ExternalAuthorization>false</ExternalAuthorization>
     <Operation>RefreshAccessToken</Operation>
     <GenerateResponse enabled="false">

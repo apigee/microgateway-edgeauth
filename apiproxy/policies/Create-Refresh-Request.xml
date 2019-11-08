@@ -14,11 +14,11 @@
     </Set>
     <AssignVariable>
         <Name>token_expiry</Name>
-        <Value>300</Value>
+        <Value>1800000</Value>
     </AssignVariable>
     <AssignVariable>
         <Name>refresh_token_expiry</Name>
-        <Value>3600</Value>
+        <Value>7200000</Value>
     </AssignVariable>
     <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
     <AssignTo type="request" transport="http" createNew="true"></AssignTo>
