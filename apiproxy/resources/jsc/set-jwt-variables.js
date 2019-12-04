@@ -13,12 +13,12 @@
 // limitations under the License.
 
 var apiCredential = JSON.parse(context.getVariable('apiCredential'));
-var apiKey = context.getVariable('apikey');
 //{"Credentials":{"Credential":[{"Attributes":{},"ConsumerKey":"xxx","ConsumerSecret":"xx","ExpiresAt":"-1","IssuedAt":"1530046158362","ApiProducts":{"ApiProduct":{"Name":"details product","Status":"approved"}},"Scopes":{},"Status":"approved"}]}}
 var credentials = apiCredential.Credentials.Credential;
 
 var apiProductsList = [];
 try {
+    var apiKey = context.getVariable('apikey').trim();
     credentials.forEach(function(credential) {
         if (credential.ConsumerKey == apiKey) {
             credential.ApiProducts.ApiProduct.forEach(function(apiProduct){
