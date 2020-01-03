@@ -24,7 +24,7 @@
     }
     
     jws.access_token = context.getVariable('jwtmessage');
-    jws.token_type   = "bearer";
+    jws.token_type   = "Bearer";
     jws.expires_in   = context.getVariable("token_expiry");
     
     //if refresh token exists, add it to response
