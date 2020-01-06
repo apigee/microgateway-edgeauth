@@ -3,6 +3,9 @@
     <DisplayName>Create OAuth Request</DisplayName>
     <FaultRules/>
     <Properties/>
+    <Copy source="request">
+        <Headers/>
+    </Copy>    
     <Set>
         <FormParams>
             <FormParam name="client_id">{client_id}</FormParam>
