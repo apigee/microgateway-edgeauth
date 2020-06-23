@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<APIProxy revision="3" name="edgemicro-auth">
-    <Basepaths>/edgemicro-auth</Basepaths>
-    <Basepaths>/edgemicro-auth</Basepaths>
+<APIProxy revision="5" name="edgemicro-auth">
     <Basepaths>/edgemicro-auth</Basepaths>
     <ConfigurationVersion majorVersion="4" minorVersion="0"/>
-    <CreatedAt>1567144173796</CreatedAt>
-    <CreatedBy>defaultUser</CreatedBy>
     <Description>edgemicro-auth</Description>
     <DisplayName>edgemicro-auth</DisplayName>
-    <LastModifiedAt>1567144173796</LastModifiedAt>
-    <LastModifiedBy>defaultUser</LastModifiedBy>
-    <ManifestVersion>SHA-512:bf76071973427038ee5c020a053a9ea192f2d0f35bf7e26f7214ead92d716a500fd0669d95f2046de3084ccd4d21918a6b14bd461df2be715125a6993bae0bd1</ManifestVersion>
+    
     <Policies>
         <Policy>Access-App-Info-2</Policy>
         <Policy>Access-App-Info</Policy>
         <Policy>AccessTokenRequest</Policy>
-	<Policy>Adjust-Quota</Policy>
+        <Policy>Adjust-Quota</Policy>
         <Policy>Authenticate-Call</Policy>
         <Policy>AuthenticationError</Policy>
         <Policy>Create-OAuth-Request</Policy>
@@ -49,6 +43,16 @@
         <Policy>Set-Response</Policy>
         <Policy>Validate-Params</Policy>
         <Policy>Verify-API-Key</Policy>
+        <Policy>Extract-Rotate-Key-Params</Policy>
+        <Policy>Rotate-Key</Policy>
+        <Policy>Update-KVM-Rotated-Keys</Policy>
+        <Policy>Send-Rotate-Key-Response</Policy>
+        <Policy>Extract-Upgrade-KVM-Params</Policy>
+        <Policy>Upgrade-KVM</Policy>
+        <Policy>Update-KVM-Upgraded-Keys</Policy>
+        <Policy>Send-Upgrade-KVM-Response</Policy>
+        <Policy>Delete-KVM-EMG-Keys</Policy>
+        <Policy>Raise-Fault-Bad-Request</Policy>
     </Policies>
     <ProxyEndpoints>
         <ProxyEndpoint>default</ProxyEndpoint>
@@ -60,12 +64,16 @@
         <Resource>jsc://generate-verify-jwt.js</Resource>
         <Resource>jsc://jsrsasign-all-min.js</Resource>
         <Resource>jsc://jwt-initialization.js</Resource>
+        <Resource>jsc://rotate-key.js</Resource>
         <Resource>jsc://send-jwk-response.js</Resource>
         <Resource>jsc://send-product-list.js</Resource>
         <Resource>jsc://send-public-key.js</Resource>
+        <Resource>jsc://send-rotate-key-response.js</Resource>
+        <Resource>jsc://send-upgrade-kvm-response.js</Resource>
         <Resource>jsc://set-jwt-variables.js</Resource>
         <Resource>jsc://set-quota-variables.js</Resource>
         <Resource>jsc://set-response.js</Resource>
+        <Resource>jsc://upgrade-kvm.js</Resource>
         <Resource>jsc://validate-params.js</Resource>
     </Resources>
     <Spec></Spec>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="Extract-Rotate-Key-Params">
+    <DisplayName>Extract Rotate Key Params</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <JSONPayload>
+        <Variable name="private_key_kid" type="string">
+            <JSONPath>$.private_key_kid</JSONPath>
+        </Variable>
+        <Variable name="private_key" type="string">
+            <JSONPath>$.private_key</JSONPath>
+        </Variable>
+        <Variable name="public_key" type="string">
+            <JSONPath>$.public_key</JSONPath>
+        </Variable>
+        <Variable name="public_key1" type="string">
+            <JSONPath>$.public_key1</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <Source clearPayload="false">request</Source>
+</ExtractVariables>

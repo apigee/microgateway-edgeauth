@@ -11,7 +11,7 @@
         </FaultRule>
     </FaultRules>
     <Flows>
-        <Flow name="Get public key">
+        <Flow name="Get Public Key">
             <Description/>
             <Request/>
             <Response>
@@ -25,6 +25,111 @@
                 </Step>
             </Response>
             <Condition>(proxy.pathsuffix MatchesPath "/publicKey") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="Upgrade KVM">
+            <Description></Description>
+            <Request>
+                <Step>
+                    <Condition>request.header.Authorization is null</Condition>
+                    <FaultRules/>
+                    <Name>AuthenticationError</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Authenticate-Call</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Extract-Upgrade-KVM-Params</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Get-Private-Key</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Get-Public-Key</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Get-Public-Keys</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Upgrade-KVM</Name>
+                </Step>
+                <Step>
+                    <Condition>errText isnot null</Condition>
+                    <FaultRules/>
+                    <Name>Raise-Fault-Bad-Request</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Update-KVM-Upgraded-Keys</Name>
+                </Step>
+                <Step>
+                    <Condition>deletePublicKey2 = true</Condition>
+                    <FaultRules/>
+                    <Name>Delete-KVM-EMG-Keys</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>Send-Upgrade-KVM-Response</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/upgradeKvm") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="Rotate Key">
+            <Description></Description>
+            <Request>
+                <Step>
+                    <Condition>request.header.Authorization is null</Condition>
+                    <FaultRules/>
+                    <Name>AuthenticationError</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Authenticate-Call</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Extract-Rotate-Key-Params</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Get-Private-Key</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Get-Public-Key</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Get-Public-Keys</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Rotate-Key</Name>
+                </Step>
+                <Step>
+                    <Condition>errText isnot null</Condition>
+                    <FaultRules/>
+                    <Name>Raise-Fault-Bad-Request</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Update-KVM-Rotated-Keys</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>Send-Rotate-Key-Response</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/rotateKey") and (request.verb = "POST")</Condition>
         </Flow>
         <Flow name="Verify API Key">
             <Description/>
