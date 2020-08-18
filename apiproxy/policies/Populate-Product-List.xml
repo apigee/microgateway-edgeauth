@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <PopulateCache async="false" continueOnError="false" enabled="true" name="Populate-Product-List">
     <DisplayName>Populate Product List</DisplayName>
+    <FaultRules/>
     <Properties/>
     <CacheKey>
-        <Prefix/>
-        <KeyFragment ref="request.queryparam.productnamefilter"/>
+        <Prefix></Prefix>
+        <KeyFragment ref="request.queryparam.productnamefilter"></KeyFragment>
     </CacheKey>
     <Scope>Exclusive</Scope>
     <ExpirySettings>

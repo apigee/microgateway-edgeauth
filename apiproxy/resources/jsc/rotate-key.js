@@ -11,6 +11,7 @@ function validateKvm() {
     var newPrivateKeyKid = context.getVariable('private_key_kid') || '';
     var newPublicKey = context.getVariable('public_key') || '';
     var newPublicKey1 = context.getVariable('public_key1') || '';
+    var futureKeysNbf = context.getVariable('future_keys_nbf') || '';
     
     if(privateKey === null || privateKey === '') {
         context.setVariable('errText', 'privateKey does not exist in kvm, Please run configure command');
@@ -53,6 +54,14 @@ function validateKvm() {
         return;
     }else{
         context.setVariable('newPublicKey1', newPublicKey1);
+    }
+    if(futureKeysNbf) {
+        //adding timestamp
+        var updatedFutureKeysNbf = Date.now() + parseInt(futureKeysNbf);
+        context.setVariable('nbf', true);
+        context.setVariable('futureKeysNbf', updatedFutureKeysNbf.toString());
+    }else{
+        context.setVariable('nbf', false);
     }
     if(newPrivateKeyKid === null || newPrivateKeyKid === '') {
         //adding timestamp

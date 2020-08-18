@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations encrypted="false" mapIdentifier="microgateway" async="false" continueOnError="false" enabled="true" name="Update-KVM-Future-Keys">
+    <DisplayName>Update KVM For Future Keys</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <ExclusiveCache>false</ExclusiveCache>
+    <ExpiryTimeInSecs>-1</ExpiryTimeInSecs>
+    <InitialEntries/>
+    <Put override="true">
+        <Key>
+            <Parameter>future_private_key</Parameter>
+        </Key>
+        <Value ref="newPrivateKey"/>
+    </Put>
+    <Put override="true">
+        <Key>
+            <Parameter>future_private_key_kid</Parameter>
+        </Key>
+        <Value ref="newPrivateKeyKid"/>
+    </Put>
+    <Put override="true">
+        <Key>
+            <Parameter>future_certficate</Parameter>
+        </Key>
+        <Value ref="newPublicKey"/>
+    </Put>
+    <Put override="true">
+        <Key>
+            <Parameter>future_keys_nbf</Parameter>
+        </Key>
+        <Value ref="futureKeysNbf"/>
+    </Put>
+    <Put override="true">
+        <Key>
+            <Parameter>future_public_key1_kid</Parameter>
+        </Key>
+        <Value ref="newPrivateKeyKid"/>
+    </Put>
+    <Put override="true">
+        <Key>
+            <Parameter>future_public_key1</Parameter>
+        </Key>
+        <Value ref="newPublicKey1"/>
+    </Put>
+    <Put override="true">
+        <Key>
+            <Parameter>future_public_key2_kid</Parameter>
+        </Key>
+        <Value ref="oldPublicKeyKid"/>
+    </Put>
+    <Put override="true">
+        <Key>
+            <Parameter>future_public_key2</Parameter>
+        </Key>
+        <Value ref="oldPublicKey"/>
+    </Put>
+    <Put override="true">
+        <Key>
+            <Parameter>public_key2_kid</Parameter>
+        </Key>
+        <Value ref="newPrivateKeyKid"/>
+    </Put>
+    <Put override="true">
+        <Key>
+            <Parameter>public_key2</Parameter>
+        </Key>
+        <Value ref="newPublicKey1"/>
+    </Put>
+    <Scope>environment</Scope>
+</KeyValueMapOperations>

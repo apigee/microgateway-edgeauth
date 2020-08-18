@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <AssignMessage async="false" continueOnError="false" enabled="true" name="Set-Quota-Response">
     <DisplayName>Set Quota Response</DisplayName>
+    <FaultRules/>
+    <Properties/>
     <Remove>
         <FormParams/>
     </Remove>
@@ -15,5 +17,5 @@
 }</Payload>
     </Set>
     <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
-    <AssignTo createNew="false" type="response"/>
+    <AssignTo type="response" transport="http" createNew="false"></AssignTo>
 </AssignMessage>

@@ -3,22 +3,24 @@
     <DisplayName>Generate VerifyKey Token</DisplayName>
     <FaultRules/>
     <Properties/>
-    <AdditionalClaims>
-        <Claim name="client_id" ref="apigee.client_id" type="string"></Claim>
-        <Claim array="true" name="api_product_list" ref="apiProductList" type="string"></Claim>
-        <Claim name="application_name" ref="apigee.developer.app.name" type="string"></Claim>
-        <Claim name="developer_email" ref="apigee.developer.email" type="string"></Claim>
-    </AdditionalClaims>
-    <AdditionalHeaders/>
+    <Type>Signed</Type>
     <Algorithm>RS256</Algorithm>
-    <Audience>microgateway</Audience>
-    <ExpiresIn ref="token_expiry">1800000</ExpiresIn>
     <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
-    <Issuer ref="iss"></Issuer>
-    <NotBefore ref="nbf"></NotBefore>
-    <OutputVariable>jwtmessage</OutputVariable>
     <PrivateKey>
         <Value ref="private.privateKey"></Value>
         <Id ref="private.private_key_kid"></Id>
     </PrivateKey>
+    <AdditionalHeaders/>
+    <OutputVariable>jwtmessage</OutputVariable>
+    <AdditionalClaims>
+        <Claim name="client_id" ref="apigee.client_id" type="string" wantFaultIfUnresolved="false"></Claim>
+        <Claim array="true" name="api_product_list" ref="apiProductList" type="string" wantFaultIfUnresolved="false"></Claim>
+        <Claim name="application_name" ref="apigee.developer.app.name" type="string" wantFaultIfUnresolved="false"></Claim>
+        <Claim name="developer_email" ref="apigee.developer.email" type="string" wantFaultIfUnresolved="false"></Claim>
+    </AdditionalClaims>
+    <Audience>microgateway</Audience>
+    <Compress>false</Compress>
+    <ExpiresIn ref="token_expiry">1800000</ExpiresIn>
+    <Issuer ref="iss"></Issuer>
+    <NotBefore ref="nbf"></NotBefore>
 </GenerateJWT>

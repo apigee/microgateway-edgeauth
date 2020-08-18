@@ -21,7 +21,7 @@
         <Policy>Generate-Access-Token</Policy>
         <Policy>Generate-JWK</Policy>
         <Policy>Generate-VerifyKey-Token</Policy>
-        <Policy>Get-Private-Key</Policy>
+        <Policy>Get-Private-Keys</Policy>
         <Policy>Get-Public-Key</Policy>
         <Policy>Get-Public-Keys</Policy>
         <Policy>JavaCallout</Policy>
@@ -53,6 +53,11 @@
         <Policy>Send-Upgrade-KVM-Response</Policy>
         <Policy>Delete-KVM-EMG-Keys</Policy>
         <Policy>Raise-Fault-Bad-Request</Policy>
+        <Policy>Get-Future-Keys</Policy>
+        <Policy>Update-KVM-For-New-Keys</Policy>
+        <Policy>Update-KVM-Future-Keys</Policy>
+        <Policy>Validate-Future-Key-Nbf</Policy>
+        <Policy>Delete-KVM-Future-Keys</Policy>
     </Policies>
     <ProxyEndpoints>
         <ProxyEndpoint>default</ProxyEndpoint>

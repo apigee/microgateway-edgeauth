@@ -3,6 +3,7 @@ var privateKey = context.getVariable("private.privateKey");
 var privateKeyKid = context.getVariable("private.private_key_kid"); 
 var publicKey1Kid = context.getVariable("private.public_key1_kid"); 
 var publicKey2Kid = context.getVariable("private.public_key2_kid");
+var futureKeysNbf = context.getVariable("private.future_keys_nbf"); 
 
 validateKvm();
 
@@ -33,5 +34,8 @@ function validateKvm() {
     }
     if(publicKey1Kid && publicKey2Kid && publicKey1Kid === publicKey2Kid){
         context.setVariable('deletePublicKey2', true);
+    }
+    if(futureKeysNbf && futureKeysNbf < Date.now()){
+        context.setVariable('deleteFutureKeys', true);
     }
 }

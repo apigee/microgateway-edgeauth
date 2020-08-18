@@ -13,16 +13,16 @@
         <Pattern ignoreCase="true">Basic {clientCreds}</Pattern>
     </Header>
     <FormParam name="grant_type">
-        <Pattern>{grant_type}</Pattern>
+        <Pattern ignoreCase="false">{grant_type}</Pattern>
     </FormParam>
     <FormParam name="username">
-        <Pattern>{username}</Pattern>
+        <Pattern ignoreCase="false">{username}</Pattern>
     </FormParam>
     <FormParam name="password">
-        <Pattern>{password}</Pattern>
+        <Pattern ignoreCase="false">{password}</Pattern>
     </FormParam>
     <FormParam name="scope">
-        <Pattern>{scp}</Pattern>
+        <Pattern ignoreCase="false">{scp}</Pattern>
     </FormParam>
     <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
     <JSONPayload>

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <LookupCache async="false" continueOnError="false" enabled="true" name="Lookup-Filter">
     <DisplayName>Lookup Filter</DisplayName>
+    <FaultRules/>
     <Properties/>
     <CacheKey>
-        <KeyFragment ref="request.queryparam.productnamefilter"/>
+        <KeyFragment ref="request.queryparam.productnamefilter"></KeyFragment>
     </CacheKey>
     <Scope>Exclusive</Scope>
     <AssignTo>productlist</AssignTo>

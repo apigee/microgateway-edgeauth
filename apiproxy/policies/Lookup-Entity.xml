@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <LookupCache async="false" continueOnError="false" enabled="true" name="Lookup-Entity">
     <DisplayName>Lookup Entity</DisplayName>
+    <FaultRules/>
     <Properties/>
     <CacheKey>
-        <KeyFragment ref="apikey"/>
+        <KeyFragment ref="apikey"></KeyFragment>
     </CacheKey>
     <Scope>Exclusive</Scope>
     <AssignTo>apiCredential</AssignTo>

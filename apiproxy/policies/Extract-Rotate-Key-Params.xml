@@ -17,6 +17,9 @@
         <Variable name="public_key1" type="string">
             <JSONPath>$.public_key1</JSONPath>
         </Variable>
+        <Variable name="future_keys_nbf" type="string">
+            <JSONPath>$.future_keys_nbf</JSONPath>
+        </Variable>
     </JSONPayload>
     <Source clearPayload="false">request</Source>
 </ExtractVariables>

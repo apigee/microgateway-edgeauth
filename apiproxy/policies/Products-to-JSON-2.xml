@@ -3,14 +3,18 @@
     <DisplayName>Products to JSON 2</DisplayName>
     <FaultRules/>
     <Properties/>
-    <!--<Format>yahoo</Format>-->
-    <OutputVariable>apiCredential</OutputVariable>
-    <Source>AccessEntity.ChildNodes.Access-App-Info-2.App.Credentials</Source>
     <Options>
+        <RecognizeBoolean>false</RecognizeBoolean>
+        <RecognizeNumber>false</RecognizeNumber>
+        <RecognizeNull>false</RecognizeNull>
+        <TextAlwaysAsProperty>false</TextAlwaysAsProperty>
+        <TextNodeName></TextNodeName>
+        <StripLevels>0</StripLevels>
         <TreatAsArray>
-            <Path>Credentials/Credential</Path>
-            <Path>Credentials/Credential/ApiProducts/ApiProduct</Path>
+            <Path unwrap="false">Credentials/Credential</Path>
+            <Path unwrap="false">Credentials/Credential/ApiProducts/ApiProduct</Path>
         </TreatAsArray>
     </Options>
-    <!--<Source>AccessEntity.ChildNodes.Access-App-Info.App.Credentials.Credential</Source>-->
+    <OutputVariable>apiCredential</OutputVariable>
+    <Source>AccessEntity.ChildNodes.Access-App-Info-2.App.Credentials</Source>
 </XMLToJSON>

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <PopulateCache async="false" continueOnError="false" enabled="true" name="Populate-Entity">
     <DisplayName>Populate Entity</DisplayName>
+    <FaultRules/>
     <Properties/>
     <CacheKey>
-        <KeyFragment ref="apikey"/>
+        <KeyFragment ref="apikey"></KeyFragment>
     </CacheKey>
     <Scope>Exclusive</Scope>
     <ExpirySettings>

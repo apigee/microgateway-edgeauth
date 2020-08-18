@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Javascript async="false" continueOnError="false" enabled="true" timeLimit="200" name="Set-Quota-Variables">
+<Javascript timeLimit="200" async="false" continueOnError="false" enabled="true" name="Set-Quota-Variables">
     <DisplayName>Set Quota Variables</DisplayName>
+    <FaultRules/>
     <Properties/>
     <ResourceURL>jsc://set-quota-variables.js</ResourceURL>
 </Javascript>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations encrypted="false" mapIdentifier="microgateway" async="false" continueOnError="false" enabled="true" name="Update-KVM-For-New-Keys">
+    <DisplayName>Update KVM For New Keys</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <ExclusiveCache>false</ExclusiveCache>
+    <ExpiryTimeInSecs>-1</ExpiryTimeInSecs>
+    <InitialEntries/>
+    <Put override="true">
+        <Key>
+            <Parameter>private_key</Parameter>
+        </Key>
+        <Value ref="private.privateKey"/>
+    </Put>
+    <Put override="true">
+        <Key>
+            <Parameter>private_key_kid</Parameter>
+        </Key>
+        <Value ref="private.private_key_kid"/>
+    </Put>
+    <Put override="true">
+        <Key>
+            <Parameter>public_key</Parameter>
+        </Key>
+        <Value ref="private.publicKey"/>
+    </Put>
+    <Put override="true">
+        <Key>
+            <Parameter>public_key1</Parameter>
+        </Key>
+        <Value ref="private.public_key1"/>
+    </Put>
+    <Put override="true">
+        <Key>
+            <Parameter>public_key1_kid</Parameter>
+        </Key>
+        <Value ref="private.public_key1_kid"/>
+    </Put>
+    <Put override="true">
+        <Key>
+            <Parameter>public_key2</Parameter>
+        </Key>
+        <Value ref="private.public_key2"/>
+    </Put>
+    <Put override="true">
+        <Key>
+            <Parameter>public_key2_kid</Parameter>
+        </Key>
+        <Value ref="private.public_key2_kid"/>
+    </Put>
+    <Delete>
+        <Key>
+            <Parameter>future_keys_nbf</Parameter>
+        </Key>
+    </Delete>
+    <Delete>
+        <Key>
+            <Parameter>future_certficate</Parameter>
+        </Key>
+    </Delete>
+    <Delete>
+        <Key>
+            <Parameter>future_private_key_kid</Parameter>
+        </Key>
+    </Delete>
+    <Delete>
+        <Key>
+            <Parameter>future_private_key</Parameter>
+        </Key>
+    </Delete>
+    <Delete>
+        <Key>
+            <Parameter>future_public_key1_kid</Parameter>
+        </Key>
+    </Delete>
+    <Delete>
+        <Key>
+            <Parameter>future_public_key1</Parameter>
+        </Key>
+    </Delete>
+    <Delete>
+        <Key>
+            <Parameter>future_public_key2_kid</Parameter>
+        </Key>
+    </Delete>
+    <Delete>
+        <Key>
+            <Parameter>future_public_key2</Parameter>
+        </Key>
+    </Delete>
+    <Scope>environment</Scope>
+</KeyValueMapOperations>
