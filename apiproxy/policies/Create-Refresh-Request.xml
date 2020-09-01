@@ -5,7 +5,7 @@
     <Properties/>
     <Copy source="request">
         <Headers/>
-    </Copy>    
+    </Copy>
     <Set>
         <FormParams>
             <FormParam name="client_id">{client_id}</FormParam>

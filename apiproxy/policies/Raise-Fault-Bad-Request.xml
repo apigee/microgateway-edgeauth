@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<RaiseFault async="false" continueOnError="false" enabled="true" name="Raise-Fault-Unknown-Request">
-    <DisplayName>Raise Fault-Unknown-Request</DisplayName>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="Raise-Fault-Bad-Request">
+    <DisplayName>Raise Fault Forbidden Request</DisplayName>
     <FaultRules/>
     <Properties/>
     <FaultResponse>
@@ -8,8 +8,8 @@
             <Headers/>
             <Payload contentType="application/json" variablePrefix="@" variableSuffix="#">
                 {
-                  "error":"invalid_request",
-                  "error_description": "invalid request"
+                  "error":"Bad Request",
+                  "error_description": "@errText#"
                 }
             </Payload>
             <StatusCode>400</StatusCode>

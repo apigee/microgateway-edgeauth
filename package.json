@@ -1,6 +1,6 @@
 {
   "name": "microgateway-edgeauth",
-  "version": "3.0.9",
+  "version": "3.1.1",
   "description": "this proxy is used by microgateway to get a list of products, oauth tokens and api keys",
   "main": "index.js",
   "scripts": {

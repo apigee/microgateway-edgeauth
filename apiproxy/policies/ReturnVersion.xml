@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <AssignMessage async="false" continueOnError="false" enabled="true" name="ReturnVersion">
     <DisplayName>ReturnVersion</DisplayName>
+    <FaultRules/>
     <Properties/>
     <AssignVariable>
         <Name>response.status.code</Name>
@@ -15,5 +16,5 @@
         <Value>text/plain</Value>
     </AssignVariable>
     <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
-    <AssignTo createNew="false" transport="http" type="request"/>
+    <AssignTo type="request" transport="http" createNew="false"></AssignTo>
 </AssignMessage>

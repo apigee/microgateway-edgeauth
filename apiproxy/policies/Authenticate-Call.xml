@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ServiceCallout async="false" continueOnError="false" enabled="true" name="Authenticate-Call">
     <DisplayName>Authenticate Call</DisplayName>
+    <FaultRules/>
     <Properties/>
-    <Request clearPayload="false">
-        <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <Request clearPayload="false" variable="servicecallout.request">
         <Set>
             <Headers>
                 <Header name="Authorization">{request.header.Authorization}</Header>
@@ -11,6 +11,7 @@
             <Verb>GET</Verb>
             <Path>/edgemicro/authenticate/organization/{organization.name}/environment/{environment.name}</Path>
         </Set>
+        <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
     </Request>
     <Response>calloutResponse</Response>
     <HTTPTargetConnection>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations encrypted="false" mapIdentifier="microgateway" async="false" continueOnError="false" enabled="true" name="Delete-KVM-Future-Keys">
+    <DisplayName>Delete KVM Future Keys</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <ExclusiveCache>false</ExclusiveCache>
+    <ExpiryTimeInSecs>-1</ExpiryTimeInSecs>
+    <InitialEntries/>
+    <Delete>
+        <Key>
+            <Parameter>future_keys_nbf</Parameter>
+        </Key>
+    </Delete>
+    <Delete>
+        <Key>
+            <Parameter>future_certficate</Parameter>
+        </Key>
+    </Delete>
+    <Delete>
+        <Key>
+            <Parameter>future_private_key_kid</Parameter>
+        </Key>
+    </Delete>
+    <Delete>
+        <Key>
+            <Parameter>future_private_key</Parameter>
+        </Key>
+    </Delete>
+    <Delete>
+        <Key>
+            <Parameter>future_public_key1_kid</Parameter>
+        </Key>
+    </Delete>
+    <Delete>
+        <Key>
+            <Parameter>future_public_key1</Parameter>
+        </Key>
+    </Delete>
+    <Delete>
+        <Key>
+            <Parameter>future_public_key2_kid</Parameter>
+        </Key>
+    </Delete>
+    <Delete>
+        <Key>
+            <Parameter>future_public_key2</Parameter>
+        </Key>
+    </Delete>
+    <Scope>environment</Scope>
+</KeyValueMapOperations>

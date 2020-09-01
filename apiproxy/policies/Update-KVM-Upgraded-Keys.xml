@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations encrypted="false" mapIdentifier="microgateway" async="false" continueOnError="false" enabled="true" name="Update-KVM-Upgraded-Keys">
+    <DisplayName>Update KVM For Upgraded Keys</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <ExclusiveCache>false</ExclusiveCache>
+    <ExpiryTimeInSecs>-1</ExpiryTimeInSecs>
+    <InitialEntries/>
+    <Put override="true">
+        <Key>
+            <Parameter>private_key_kid</Parameter>
+        </Key>
+        <Value ref="privateKeyKid"></Value>
+    </Put>
+    <Put override="true">
+        <Key>
+            <Parameter>public_key1_kid</Parameter>
+        </Key>
+        <Value ref="publicKey1Kid"></Value>
+    </Put>
+    <Put override="true">
+        <Key>
+            <Parameter>public_key1</Parameter>
+        </Key>
+        <Value ref="publicKey1"></Value>
+    </Put>
+    <Scope>environment</Scope>
+</KeyValueMapOperations>

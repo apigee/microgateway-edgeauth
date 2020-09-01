@@ -5,13 +5,13 @@
         <FaultRule name="AuthenticationError">
             <Condition>(fault.name Matches "ExecutionFailed")</Condition>
             <Step>
-                <Name>AuthenticationError</Name>
                 <Condition>(calloutResponse.status.code = "401") </Condition>
+                <Name>AuthenticationError</Name>
             </Step>
         </FaultRule>
     </FaultRules>
     <Flows>
-        <Flow name="Get public key">
+        <Flow name="Get Public Key">
             <Description/>
             <Request/>
             <Response>
@@ -25,6 +25,130 @@
                 </Step>
             </Response>
             <Condition>(proxy.pathsuffix MatchesPath "/publicKey") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="Upgrade KVM">
+            <Description/>
+            <Request>
+                <Step>
+                    <Condition>request.header.Authorization is null</Condition>
+                    <FaultRules/>
+                    <Name>AuthenticationError</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Authenticate-Call</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Extract-Upgrade-KVM-Params</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Get-Private-Keys</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Get-Future-Keys</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Get-Public-Key</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Get-Public-Keys</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Upgrade-KVM</Name>
+                </Step>
+                <Step>
+                    <Condition>errText isnot null</Condition>
+                    <FaultRules/>
+                    <Name>Raise-Fault-Bad-Request</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Update-KVM-Upgraded-Keys</Name>
+                </Step>
+                <Step>
+                    <Condition>deletePublicKey2 = true</Condition>
+                    <FaultRules/>
+                    <Name>Delete-KVM-EMG-Keys</Name>
+                </Step>
+                <Step>
+                    <Condition>deleteFutureKeys = true</Condition>
+                    <FaultRules/>
+                    <Name>Delete-KVM-Future-Keys</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>Send-Upgrade-KVM-Response</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/upgradeKvm") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="Rotate Key">
+            <Description/>
+            <Request>
+                <Step>
+                    <Condition>request.header.Authorization is null</Condition>
+                    <FaultRules/>
+                    <Name>AuthenticationError</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Authenticate-Call</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Extract-Rotate-Key-Params</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Get-Private-Keys</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Get-Future-Keys</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Get-Public-Key</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Get-Public-Keys</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Rotate-Key</Name>
+                </Step>
+                <Step>
+                    <Condition>errText isnot null</Condition>
+                    <FaultRules/>
+                    <Name>Raise-Fault-Bad-Request</Name>
+                </Step>
+                <Step>
+                    <Condition>nbf = false</Condition>
+                    <FaultRules/>
+                    <Name>Update-KVM-Rotated-Keys</Name>
+                </Step>
+                <Step>
+                    <Condition>nbf = true</Condition>
+                    <FaultRules/>
+                    <Name>Update-KVM-Future-Keys</Name>
+                </Step>
+            </Request>
+            <Response>
+                <Step>
+                    <FaultRules/>
+                    <Name>Send-Rotate-Key-Response</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/rotateKey") and (request.verb = "POST")</Condition>
         </Flow>
         <Flow name="Verify API Key">
             <Description/>
@@ -47,25 +171,44 @@
                     <Name>Verify-API-Key</Name>
                 </Step>
                 <Step>
+                    <FaultRules/>
                     <Name>Lookup-Entity</Name>
                 </Step>
                 <Step>
+                    <Condition>lookupcache.Lookup-Entity.cachehit = false</Condition>
                     <FaultRules/>
                     <Name>Access-App-Info-2</Name>
-                    <Condition>lookupcache.Lookup-Entity.cachehit = false</Condition>
                 </Step>
                 <Step>
+                    <Condition>lookupcache.Lookup-Entity.cachehit = false</Condition>
                     <FaultRules/>
                     <Name>Products-to-JSON-2</Name>
-                    <Condition>lookupcache.Lookup-Entity.cachehit = false</Condition>
                 </Step>
                 <Step>
-                    <Name>Populate-Entity</Name>
                     <Condition>lookupcache.Lookup-Entity.cachehit = false</Condition>
+                    <FaultRules/>
+                    <Name>Populate-Entity</Name>
                 </Step>
                 <Step>
                     <FaultRules/>
-                    <Name>Get-Private-Key</Name>
+                    <Name>Get-Private-Keys</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Get-Future-Keys</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Get-Public-Keys</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Validate-Future-Key-Nbf</Name>
+                </Step>
+                <Step>
+                    <Condition>applyNewKey = true</Condition>
+                    <FaultRules/>
+                    <Name>Update-KVM-For-New-Keys</Name>
                 </Step>
                 <Step>
                     <FaultRules/>
@@ -88,29 +231,34 @@
             <Description/>
             <Request>
                 <Step>
-                    <Name>AuthenticationError</Name>
                     <Condition>request.header.Authorization is null</Condition>
+                    <FaultRules/>
+                    <Name>AuthenticationError</Name>
                 </Step>
                 <Step>
+                    <FaultRules/>
                     <Name>Authenticate-Call</Name>
                 </Step>
                 <Step>
+                    <FaultRules/>
                     <Name>Lookup-Filter</Name>
                 </Step>
             </Request>
             <Response>
                 <Step>
+                    <Condition>lookupcache.Lookup-Filter.cachehit = false</Condition>
                     <FaultRules/>
                     <Name>JavaCallout</Name>
-                    <Condition>lookupcache.Lookup-Filter.cachehit = false</Condition>
                 </Step>
                 <Step>
+                    <Condition>lookupcache.Lookup-Filter.cachehit = false</Condition>
+                    <FaultRules/>
                     <Name>Populate-Product-List</Name>
-                    <Condition>lookupcache.Lookup-Filter.cachehit = false</Condition>
                 </Step>
                 <Step>
-                    <Name>Send-Product-List</Name>
                     <Condition>lookupcache.Lookup-Filter.cachehit = true</Condition>
+                    <FaultRules/>
+                    <Name>Send-Product-List</Name>
                 </Step>
             </Response>
             <Condition>(proxy.pathsuffix MatchesPath "/products") and (request.verb = "GET")</Condition>
@@ -123,13 +271,16 @@
                     <Name>Extract-OAuth-Params</Name>
                 </Step>
                 <Step>
+                    <FaultRules/>
                     <Name>Validate-Params</Name>
                 </Step>
                 <Step>
-                    <Name>AuthenticationError</Name>
                     <Condition>errText isnot null</Condition>
+                    <FaultRules/>
+                    <Name>AuthenticationError</Name>
                 </Step>
                 <Step>
+                    <FaultRules/>
                     <Name>Verify-API-Key</Name>
                 </Step>
                 <Step>
@@ -149,12 +300,30 @@
                     <Name>AccessTokenRequest</Name>
                 </Step>
                 <Step>
-                    <Name>Raise-Fault-Unknown-Request</Name>
                     <Condition>oauthV2.AccessTokenRequest.failed is true</Condition>
+                    <FaultRules/>
+                    <Name>Raise-Fault-Unknown-Request</Name>
                 </Step>
                 <Step>
                     <FaultRules/>
-                    <Name>Get-Private-Key</Name>
+                    <Name>Get-Private-Keys</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Get-Future-Keys</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Get-Public-Keys</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Validate-Future-Key-Nbf</Name>
+                </Step>
+                <Step>
+                    <Condition>applyNewKey = true</Condition>
+                    <FaultRules/>
+                    <Name>Update-KVM-For-New-Keys</Name>
                 </Step>
                 <Step>
                     <FaultRules/>
@@ -198,7 +367,24 @@
                 </Step>
                 <Step>
                     <FaultRules/>
-                    <Name>Get-Private-Key</Name>
+                    <Name>Get-Private-Keys</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Get-Future-Keys</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Get-Public-Keys</Name>
+                </Step>
+                <Step>
+                    <FaultRules/>
+                    <Name>Validate-Future-Key-Nbf</Name>
+                </Step>
+                <Step>
+                    <Condition>applyNewKey = true</Condition>
+                    <FaultRules/>
+                    <Name>Update-KVM-For-New-Keys</Name>
                 </Step>
                 <Step>
                     <FaultRules/>
@@ -238,35 +424,42 @@
             <Condition>(proxy.pathsuffix MatchesPath "/jwkPublicKeys") and (request.verb = "GET")</Condition>
         </Flow>
         <Flow name="Version">
+            <Request/>
             <Response>
                 <Step>
+                    <FaultRules/>
                     <Name>ReturnVersion</Name>
                 </Step>
             </Response>
             <Condition>(proxy.pathsuffix MatchesPath "/v2/version") and (request.verb = "GET")</Condition>
-            <Request/>
         </Flow>
         <Flow name="DistributedQuota">
             <Request>
                 <Step>
-                    <Name>AuthenticationError</Name>
                     <Condition>request.header.Authorization is null</Condition>
+                    <FaultRules/>
+                    <Name>AuthenticationError</Name>
                 </Step>
                 <Step>
+                    <FaultRules/>
                     <Name>Authenticate-Call</Name>
                 </Step>
                 <Step>
+                    <FaultRules/>
                     <Name>Set-Quota-Variables</Name>
                 </Step>
                 <Step>
+                    <FaultRules/>
                     <Name>DistributedQuota</Name>
                 </Step>
                 <Step>
+                    <FaultRules/>
                     <Name>Adjust-Quota</Name>
                 </Step>
             </Request>
             <Response>
                 <Step>
+                    <FaultRules/>
                     <Name>Set-Quota-Response</Name>
                 </Step>
             </Response>
@@ -294,7 +487,6 @@
     <HTTPProxyConnection>
         <BasePath>/edgemicro-auth</BasePath>
         <Properties/>
-        <VirtualHost>default</VirtualHost>
         <VirtualHost>secure</VirtualHost>
     </HTTPProxyConnection>
     <RouteRule name="noroute"/>

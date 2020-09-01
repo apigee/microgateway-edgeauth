@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations encrypted="false" mapIdentifier="microgateway" async="false" continueOnError="false" enabled="true" name="Update-KVM-Rotated-Keys">
+    <DisplayName>Update KVM For Rotated Keys</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <ExclusiveCache>false</ExclusiveCache>
+    <ExpiryTimeInSecs>-1</ExpiryTimeInSecs>
+    <InitialEntries/>
+    <Put override="true">
+        <Key>
+            <Parameter>private_key</Parameter>
+        </Key>
+        <Value ref="newPrivateKey"></Value>
+    </Put>
+    <Put override="true">
+        <Key>
+            <Parameter>private_key_kid</Parameter>
+        </Key>
+        <Value ref="newPrivateKeyKid"></Value>
+    </Put>
+    <Put override="true">
+        <Key>
+            <Parameter>public_key</Parameter>
+        </Key>
+        <Value ref="newPublicKey"></Value>
+    </Put>
+    <Put override="true">
+        <Key>
+            <Parameter>public_key1_kid</Parameter>
+        </Key>
+        <Value ref="newPrivateKeyKid"></Value>
+    </Put>
+    <Put override="true">
+        <Key>
+            <Parameter>public_key1</Parameter>
+        </Key>
+        <Value ref="newPublicKey1"></Value>
+    </Put>
+    <Put override="true">
+        <Key>
+            <Parameter>public_key2_kid</Parameter>
+        </Key>
+        <Value ref="oldPublicKeyKid"></Value>
+    </Put>
+    <Put override="true">
+        <Key>
+            <Parameter>public_key2</Parameter>
+        </Key>
+        <Value ref="oldPublicKey"></Value>
+    </Put>
+    <Scope>environment</Scope>
+</KeyValueMapOperations>

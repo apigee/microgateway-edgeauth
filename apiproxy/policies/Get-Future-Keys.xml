@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations async="false" encrypted="false" continueOnError="false" enabled="true" name="Get-Future-Keys" mapIdentifier="microgateway">
+    <DisplayName>Get Future Keys</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <ExclusiveCache>false</ExclusiveCache>
+    <ExpiryTimeInSecs>-1</ExpiryTimeInSecs>
+    <InitialEntries/>
+    <Get assignTo="private.future_keys_nbf" index="1">
+        <Key>
+            <Parameter>future_keys_nbf</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="private.future_private_key" index="1">
+        <Key>
+            <Parameter>future_private_key</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="private.future_private_key_kid" index="1">
+        <Key>
+            <Parameter>future_private_key_kid</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="private.future_certficate" index="1">
+        <Key>
+            <Parameter>future_certficate</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="private.future_public_key1_kid" index="1">
+        <Key>
+            <Parameter>future_public_key1_kid</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="private.future_public_key1" index="1">
+        <Key>
+            <Parameter>future_public_key1</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="private.future_public_key2_kid" index="1">
+        <Key>
+            <Parameter>future_public_key2_kid</Parameter>
+        </Key>
+    </Get>
+    <Get assignTo="private.future_public_key2" index="1">
+        <Key>
+            <Parameter>future_public_key2</Parameter>
+        </Key>
+    </Get>
+    <Scope>environment</Scope>
+</KeyValueMapOperations>

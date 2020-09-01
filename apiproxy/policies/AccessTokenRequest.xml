@@ -7,21 +7,18 @@
     <GenerateErrorResponse enabled="true">
         <Format>FORM_PARAM</Format>
     </GenerateErrorResponse>
-    <!-- expiry set to 30 mins -->
     <ExpiresIn ref="token_expiry">1800000</ExpiresIn>
     <ExternalAuthorization>false</ExternalAuthorization>
     <Operation>GenerateAccessToken</Operation>
-    <!-- expiry set to 12 hrs -->
     <RefreshTokenExpiresIn ref="refresh_token_expiry">43200000</RefreshTokenExpiresIn>
     <GenerateResponse enabled="false">
         <Format>FORM_PARAM</Format>
     </GenerateResponse>
     <ReuseRefreshToken>true</ReuseRefreshToken>
+    <Scope>request.formparam.scope</Scope>
     <SupportedGrantTypes>
         <GrantType>password</GrantType>
         <GrantType>client_credentials</GrantType>
     </SupportedGrantTypes>
-    <!-- set scope -->
-    <Scope>request.formparam.scope</Scope>
     <Tokens/>
 </OAuthV2>
