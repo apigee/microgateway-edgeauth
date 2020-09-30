@@ -33,7 +33,9 @@ try {
 var scope = context.getVariable("oauthv2accesstoken.AccessTokenRequest.scope");
 if (scope) {
     var scopearr = scope.split(" ");
-    context.setVariable("scope", scopearr.join());
+    context.setVariable("scp", scopearr.join());
+} else {
+    context.removeVariable('scp'); // To remove the invalid scope values if sent in /token request
 }
 
 context.setVariable("apiProductList", apiProductsList.join());
