@@ -20,33 +20,33 @@
 
  certificatelist.keys = [];
  
- if (!publicKey1) {
+ if (!publicKey1 && !publicKey2) {
     throw Error("No public keys found");     
  }
  
- var key1 = KEYUTIL.getKey(publicKey1);
- var jwk1 = KEYUTIL.getJWKFromKey(key1);
- var public_key1_kid = context.getVariable("private.public_key1_kid") || null;
- 
- if (public_key1_kid !== null) {
-    jwk1.kid = public_key1_kid;
+ if (publicKey1) {
+    var key1 = KEYUTIL.getKey(publicKey1);
+    var jwk1 = KEYUTIL.getJWKFromKey(key1);
+    var public_key1_kid = context.getVariable("private.public_key1_kid") || null;
     jwk1.alg = alg;
     jwk1.use = use;
- }
- certificatelist.keys.push(jwk1);
+    if (public_key1_kid !== null) {
+       jwk1.kid = public_key1_kid;
+    }
+   certificatelist.keys.push(jwk1);
+}
  
  if (publicKey2) {
     var key2 = KEYUTIL.getKey(publicKey2);
     var jwk2 = KEYUTIL.getJWKFromKey(key2);
     var public_key2_kid = context.getVariable("private.public_key2_kid") || null;
+    jwk2.alg = alg;
+    jwk2.use = use;
     if (public_key2_kid !== null) {
-        jwk2.kid = public_key2_kid;
-        jwk2.alg = alg;
-        jwk2.use = use;
+        jwk2.kid = public_key2_kid; 
     }
+    certificatelist.keys.push(jwk2);
  }
-
- certificatelist.keys.push(jwk2);
-
+ 
  context.setVariable("jwkmessage", JSON.stringify(certificatelist));
 
