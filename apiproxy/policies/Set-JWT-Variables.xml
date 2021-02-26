@@ -2,6 +2,10 @@
 <Javascript timeLimit="20000" async="false" continueOnError="false" enabled="true" name="Set-JWT-Variables">
     <DisplayName>Set JWT Variables</DisplayName>
     <FaultRules/>
-    <Properties/>
+    <!--
+    <Properties>
+        <Property name="allowProductStatus">Approved</Property>
+    </Properties>
+    -->
     <ResourceURL>jsc://set-jwt-variables.js</ResourceURL>
 </Javascript>
