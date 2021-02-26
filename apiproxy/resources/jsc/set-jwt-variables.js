@@ -16,13 +16,27 @@ var apiCredential = JSON.parse(context.getVariable('apiCredential'));
 //{"Credentials":{"Credential":[{"Attributes":{},"ConsumerKey":"xxx","ConsumerSecret":"xx","ExpiresAt":"-1","IssuedAt":"1530046158362","ApiProducts":{"ApiProduct":{"Name":"details product","Status":"approved"}},"Scopes":{},"Status":"approved"}]}}
 var credentials = apiCredential.Credentials.Credential;
 
+var allowedStatus = properties.allowProductStatus;
+var productAllowedStatus=[];
+
+try{
+    productAllowedStatus = allowedStatus.toLowerCase().split(',');
+}catch (err) {
+}
+
 var apiProductsList = [];
 try {
     var apiKey = context.getVariable('apikey').trim();
     credentials.forEach(function(credential) {
         if (credential.ConsumerKey == apiKey) {
             credential.ApiProducts.ApiProduct.forEach(function(apiProduct){
-                apiProductsList.push(apiProduct.Name);
+                if(productAllowedStatus && productAllowedStatus.length>0){
+                    if(productAllowedStatus.indexOf(apiProduct.Status.toLowerCase()) != -1){
+                        apiProductsList.push(apiProduct.Name);
+                    }
+                }else{
+                    apiProductsList.push(apiProduct.Name);
+                }
             });
         }
     });
