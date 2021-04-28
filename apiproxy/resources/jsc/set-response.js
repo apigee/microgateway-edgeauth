@@ -27,7 +27,7 @@
     jws.token_type   = "Bearer";
 
      // for /token flow
-     jws.expires_in = context.getVariable("oauthv2accesstoken.AccessTokenRequest.expires_in");
+     jws.expires_in = parseInt(context.getVariable("oauthv2accesstoken.AccessTokenRequest.expires_in"));
 
      // for any other flows if any 
     if ( !jws.expires_in ) {
