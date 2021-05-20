@@ -1,4 +1,4 @@
-// Copyright 2018 Google LLC
+// Copyright 2018-2021 Google LLC
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,40 +12,39 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- //prepare response object
- 
- var jws = {
-    token: context.getVariable('jwtmessage')
- };
- 
- if (context.getVariable('grant_type') === 'client_credentials' || context.getVariable('grant_type') === 'password') {
-    if (context.getVariable("scp")) {
-     jws.scope = context.getVariable("scp");
-    }
-    
-    jws.access_token = context.getVariable('jwtmessage');
-    jws.token_type   = "Bearer";
+/* global context */
 
-     // for /token flow
-     jws.expires_in = context.getVariable("oauthv2accesstoken.AccessTokenRequest.expires_in");
+var payload = {
+      token: context.getVariable('jwtmessage')
+    };
 
-     // for any other flows if any 
-    if ( !jws.expires_in ) {
-      jws.expires_in   = parseInt( context.getVariable("token_expiry"), 10) / 1000; // convert to seconds
-    }
-    
-    //if refresh token exists, add it to response
-    if (context.getVariable('grant_type') === "password") {
-        jws.refresh_token            = context.getVariable("oauthv2accesstoken.AccessTokenRequest.refresh_token");
-        jws.refresh_token_expires_in = context.getVariable("oauthv2accesstoken.AccessTokenRequest.refresh_token_expires_in");         
-        jws.refresh_token_issued_at  = context.getVariable("oauthv2accesstoken.AccessTokenRequest.refresh_token_issued_at") ; 
-        jws.refresh_token_status     = context.getVariable("oauthv2accesstoken.AccessTokenRequest.refresh_token_status"); 
-    }
- }
- 
- 
- //send response
- context.setVariable("response.header.Content-Type","application/json");
- context.setVariable("response.header.Cache-Control","no-store");
- context.setVariable("response.header.Pragma","no-cache");
- context.setVariable("response.content", JSON.stringify(jws));
+if (context.getVariable('grant_type') === 'client_credentials' || context.getVariable('grant_type') === 'password') {
+  if (context.getVariable("scp")) {
+    payload.scope = context.getVariable("scp");
+  }
+
+  payload.access_token = context.getVariable('jwtmessage');
+  payload.token_type   = "Bearer";
+
+  // for /token flow
+  payload.expires_in = parseInt(context.getVariable("oauthv2accesstoken.AccessTokenRequest.expires_in"), 10);
+
+  // for any other flows if any
+  if ( !payload.expires_in ) {
+    payload.expires_in   = parseInt( context.getVariable("token_expiry"), 10) / 1000; // convert to seconds
+  }
+
+  //if refresh token exists, add it to response
+  if (context.getVariable('grant_type') === "password") {
+    payload.refresh_token            = context.getVariable("oauthv2accesstoken.AccessTokenRequest.refresh_token");
+    payload.refresh_token_expires_in = parseInt(context.getVariable("oauthv2accesstoken.AccessTokenRequest.refresh_token_expires_in"), 10);
+    payload.refresh_token_issued_at  = context.getVariable("oauthv2accesstoken.AccessTokenRequest.refresh_token_issued_at") ;
+    payload.refresh_token_status     = context.getVariable("oauthv2accesstoken.AccessTokenRequest.refresh_token_status");
+  }
+}
+
+// set response
+context.setVariable("response.header.Content-Type","application/json");
+context.setVariable("response.header.Cache-Control","no-store");
+context.setVariable("response.header.Pragma","no-cache");
+context.setVariable("response.content", JSON.stringify(payload));
