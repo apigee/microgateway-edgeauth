@@ -26,12 +26,14 @@
     jws.access_token = context.getVariable('jwtmessage');
     jws.token_type   = "Bearer";
 
-     // for /token flow
-     jws.expires_in = context.getVariable("oauthv2accesstoken.AccessTokenRequest.expires_in");
+    // for /token flow
+    jws.expires_in = context.getVariable("oauthv2accesstoken.AccessTokenRequest.expires_in");
 
      // for any other flows if any 
     if ( !jws.expires_in ) {
       jws.expires_in   = parseInt( context.getVariable("token_expiry"), 10) / 1000; // convert to seconds
+    } else {
+       jws.expires_in = parseInt(jws.expires_in);
     }
     
     //if refresh token exists, add it to response
