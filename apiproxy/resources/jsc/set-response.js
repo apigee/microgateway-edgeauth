@@ -32,6 +32,8 @@
      // for any other flows if any 
     if ( !jws.expires_in ) {
       jws.expires_in   = parseInt( context.getVariable("token_expiry"), 10) / 1000; // convert to seconds
+    }else {
+      jws.expires_in = parseInt( jws.expires_in );
     }
     
     //if refresh token exists, add it to response
